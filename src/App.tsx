@@ -3,8 +3,6 @@ import WebApp from '@twa-dev/sdk'
 
 function App() {
 
-    WebApp.setBackgroundColor('#000000')
-
     WebApp.MainButton.setParams({
         text: 'Main Button'
     });
