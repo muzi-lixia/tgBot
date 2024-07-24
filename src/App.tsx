@@ -22,6 +22,9 @@ function App() {
         }
     }
 
+    console.log(WebApp.initData);
+    
+
     return (
         <>
             测试
