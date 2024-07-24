@@ -1,7 +1,11 @@
 import './App.css'
 import WebApp from '@twa-dev/sdk'
+import eruda from 'eruda'
 
 function App() {
+
+    eruda.init()
+    WebApp.ready()
 
     WebApp.MainButton.setParams({
         text: 'Main Button'
