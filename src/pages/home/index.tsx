@@ -33,6 +33,11 @@ export default function Home() {
         }, 2000)
     }
 
+    const handleCloseClaimModal = () => {
+        setOpenClaimModal(false)
+        setAnimation(false)
+    }
+
     useEffect(() => {
         const info = WebApp.initDataUnsafe
         console.log(WebApp.initData);
@@ -77,7 +82,7 @@ export default function Home() {
             </div>
 
             {/* 右侧金币动画 */}
-            <div className={`${styles.goldCoin} ${animation ? styles.animation : ''}`}>
+            <div className={`${styles.goldCoin} ${animation ? styles.animation : styles.homing}`}>
                 <img src="/images/goldcoin.png" width={102} height={102} alt="" />
             </div>
 
@@ -92,7 +97,7 @@ export default function Home() {
             <Ranking openDrawer={openRank} setOpenDrawer={() => setOpenRank(false)} />
             <Invitation openDrawer={openInvitation} setOpenDrawer={() => setOpenInvitation(false)} />
 
-            <ClaimModal openModal={openClaimModal} setOpenModal={() => setOpenClaimModal(false)} />
+            <ClaimModal openModal={openClaimModal} setOpenModal={handleCloseClaimModal} />
 
             <DrawsModal openModal={openDrawsModal} setOpenModal={() => setOpenDrawsModal(false)} />
         </div>

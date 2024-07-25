@@ -163,6 +163,11 @@
         }
     }
 
+    .homing {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+
     .claimBtn {
         position: absolute;
         left: 50%;
