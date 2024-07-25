@@ -23,7 +23,7 @@ export default function Rules({
             <div className={styles.customHeader}>
                 <div className={styles.title}>Invitation</div>
                 <div onClick={() => setOpenDrawer()}>
-                    <img src={'/images/close.png'} width={30} height={30} alt="" />
+                    <img src={'images/close.png'} width={30} height={30} alt="" />
                 </div>
             </div>
             <div className={styles.context}>

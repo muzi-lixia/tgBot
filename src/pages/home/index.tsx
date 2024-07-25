@@ -9,13 +9,6 @@ import ClaimModal from './components/claimModal'
 import DrawsModal from './components/drawsModal'
 
 export default function Home() {
-    WebApp.MainButton.setParams({
-        text: 'Main Button'
-    });
-    WebApp.MainButton.onClick(function () {
-        WebApp.showAlert('Main Button was clicked')
-    });
-    WebApp.MainButton.show();
 
     const [openRules, setOpenRules] = useState(false)
     const [openReward, setOpenReward] = useState(false)
@@ -45,6 +38,9 @@ export default function Home() {
         console.log(info);
     }, [])
 
+    console.log(import.meta.env.BASE_URL);
+    
+
     return (
         <div className={styles.home}>
             {/* 所有光源 */}
@@ -52,43 +48,43 @@ export default function Home() {
             <div className={styles.header}>
                 <div className={styles.wallet}>
                     <div>
-                        <img src="/images/balanceImg.png" width={120} height={44} alt="" />
+                        <img src="images/balanceImg.png" width={120} height={44} alt="" />
                     </div>
                     <div className={styles.walletBtn}>Wallet</div>
                 </div>
                 <div className={styles.claimNum}>
-                    <img src="/images/claim.png" width={120} height={43} alt="" />
+                    <img src="images/claim.png" width={120} height={43} alt="" />
                 </div>
             </div>
 
             {/* 左侧按钮 */}
             <div className={styles.btnGroup}>
                 <div className={styles.rules} onClick={() => setOpenRules(true)}>
-                    <img src="/images/rules.png" width={44} height={44} alt="" />
+                    <img src="images/rules.png" width={44} height={44} alt="" />
                     <span>Rules</span>
                 </div>
                 <div className={styles.record} onClick={() => setOpenReward(true)}>
-                    <img src="/images/record.png" width={32} height={34} alt="" />
+                    <img src="images/record.png" width={32} height={34} alt="" />
                     <span>Reward</span>
                 </div>
                 <div className={styles.rank} onClick={() => setOpenRank(true)}>
-                    <img src="/images/rank.png" width={44} height={33} alt="" />
+                    <img src="images/rank.png" width={44} height={33} alt="" />
                     <span>Rank</span>
                 </div>
                 <div className={styles.invitation} onClick={() => setOpenInvitation(true)}>
-                    <img src="/images/invitation.png" width={32} height={30} alt="" />
+                    <img src="images/invitation.png" width={32} height={30} alt="" />
                     <span>Invitation</span>
                 </div>
             </div>
 
             {/* 右侧金币动画 */}
             <div className={`${styles.goldCoin} ${animation ? styles.animation : styles.homing}`}>
-                <img src="/images/goldcoin.png" width={102} height={102} alt="" />
+                <img src="images/goldcoin.png" width={102} height={102} alt="" />
             </div>
 
             {/* 底部按钮 */}
             <div className={styles.claimBtn} onClick={handleClickClaim}>
-                {/* <img src="/images/claim-1.png" width={175} height={65} alt="" /> */}
+                {/* <img src="images/claim-1.png" width={175} height={65} alt="" /> */}
             </div>
 
             {/* 弹框 */}
