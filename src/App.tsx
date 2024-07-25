@@ -16,7 +16,7 @@ function App() {
                 method: 'POST',
                 url: API.GET_JWT_TOKEN,
                 data: {
-                    authorization: 'tma' + data
+                    authorization: 'tma ' + data
                 }
             }) as any
             console.log(result);
