@@ -18,6 +18,10 @@
         height: calc(100% - 50px);
         overflow: auto;
 
+        &::-webkit-scrollbar {
+            width: 0;
+        }
+
         .inviteNum {
             display: flex;
             justify-content: center;
