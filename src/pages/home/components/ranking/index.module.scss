@@ -52,6 +52,17 @@
                 padding-bottom: 12px;
                 border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
+                .no {
+                    display: flex;
+                    align-items: center;
+                }
+
+                .num {
+                    display: inline-block;
+                    width: 33px;
+                    text-align: center;
+                }
+
                 .name {
                     margin-left: 12px;
                     font-size: 18px;

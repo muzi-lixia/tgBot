@@ -14,61 +14,38 @@
     }
 
     .context {
-        margin-top: 10px;
-        height: calc(100% - 90px);
-
-        .inviteNum {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 36px;
-            font-family: PingFangSC, PingFang SC;
-            font-weight: 400;
-            font-size: 12px;
-            color: #6F542A;
-            line-height: 17px;
-            background: #FFEBCB;
-            border-radius: 18px;
-
-            span {
-                margin-left: 4px;
-                font-size: 16px;
-                font-weight: 500;
-            }
-        }
-
-        .inviteStep {
-            display: flex;
-            flex-direction: column;
-            row-gap: 30px;
-            margin-top: 25px;
-
-            .step {
-                height: 65px;
-                background: #FFF6C8;
-                border-radius: 9px;
-                border: 2px solid #826C27;
-
-                .stepText {
-                    font-family: PingFangSC, PingFang SC;
-                    font-weight: 500;
-                    font-size: 18px;
-                    color: #6F542A;
-                    line-height: 25px;
-                }
-            }
-        }
+        margin-top: 15px;
+        height: calc(100% - 60px);
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+        overflow: auto;
         
-        .inviteBtn {
-            position: relative;
+        &::-webkit-scrollbar {
+            width: 0;
+        }
+
+        .prizeRow {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            margin-top: 36px;
-            height: 56px;
-            background: linear-gradient( 111deg, #FFDF5B 0%, #FFAB38 100%);
-            border-radius: 32px;
-            box-shadow: 0 10px 2px 0 #FFAB38;
+            padding-bottom: 16px;
+            font-family: PingFangSC, PingFang SC;
+            font-size: 14px;
+            color: #6F542A;
+            line-height: 18px;
+            font-weight: 500;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+            .left {
+                display: flex;
+                align-items: center;
+            }
+
+            .num {
+                margin-left: 12px;
+                
+            }
         }
     }
 

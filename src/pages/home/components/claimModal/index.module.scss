@@ -1,0 +1,79 @@
+.modal {
+
+    .text {
+        margin-top: -60px;
+        text-align: center;
+        font-family: PingFangSC, PingFang SC;
+        font-weight: 600;
+        font-size: 20px;
+        color: #FFDF5B;
+        line-height: 28px;
+    }
+
+    .shareBtn {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        margin-top: 28px;
+        width: 172px;
+        height: 46px;
+        background: linear-gradient(111deg, #B6853F 0%, #B05431 100%);
+        border-radius: 32px;
+        overflow: hidden;
+        cursor: pointer;
+        z-index: 1;
+
+
+        span {
+            font-family: PingFangSC, PingFang SC;
+            font-weight: 500;
+            font-size: 18px;
+            color: #6F542A;
+            line-height: 40px;
+        }
+
+        &::before {
+            position: absolute;
+            content: '';
+            bottom: 8px;
+            left: 0;
+            width: 172px;
+            height: 42px;
+            background: linear-gradient(111deg, #FFDF5B 0%, #FFAB38 100%);
+            border-radius: 28px;
+            z-index: -1;
+            transition: all 0.1s;
+        }
+
+        &:active {
+
+            &::before {
+                bottom: 5px;
+            }
+        }
+    }
+
+    .closeBtn {
+        margin-top: 40px;
+    }
+
+    :global {
+
+        .ant-modal-content {
+            padding: 0;
+            background-color: transparent;
+            box-shadow: none;
+        }
+    
+        .ant-modal-body {
+            position: relative;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+    }
+}
+
+.mask {
+    background-color: rgba(0, 0, 0, 0.7)!important;
+}
