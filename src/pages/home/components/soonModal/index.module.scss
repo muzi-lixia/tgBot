@@ -3,13 +3,13 @@
 
     .headerImg {
         position: absolute;
-        top: -52px;
+        top: -35px;
         left: 50%;
         transform: translateX(-50%);
     }
     
     .shadow {
-        margin-top: 60px;
+        margin-top: 40px;
         width: 101px;
         height: 11px;
         background: #FDA53D;
@@ -21,11 +21,10 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-top: 16px;
+        margin-top: 34px;
         text-align: center;
 
         .title {
-            margin-bottom: 14px;
             font-family: PingFangSC, PingFang SC;
             font-weight: 500;
             font-size: 26px;
@@ -33,19 +32,11 @@
             line-height: 37px;
         }
 
-        .desc {
-            font-family: PingFangSC, PingFang SC;
-            font-weight: 400;
-            font-size: 14px;
-            color: #6F542A;
-            line-height: 20px;
-        }
-
         .btn {
             position: relative;
             display: flex;
             justify-content: center;
-            margin-top: 16px;
+            margin-top: 30px;
             width: 172px;
             height: 56px;
             background: linear-gradient(111deg, #B6853F 0%, #B05431 100%);
@@ -71,6 +62,13 @@
                 background: linear-gradient(111deg, #FFDF5B 0%, #FFAB38 100%);
                 border-radius: 28px;
                 z-index: -1;
+                transform: bottom 0.3s;
+            }
+
+            &:active {
+                &::before {
+                    bottom: 5px;
+                }
             }
         }
     }
@@ -112,7 +110,7 @@
 
         .ant-modal-body {
             position: relative;
-            padding: 1px 15px 24px!important;
+            padding: 1px 15px 50px!important;
             display: flex;
             align-items: center;
             flex-direction: column;

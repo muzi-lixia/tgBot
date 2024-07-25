@@ -7,6 +7,7 @@ import Invitation from './components/invitation'
 import Reward from './components/reward'
 import ClaimModal from './components/claimModal'
 import DrawsModal from './components/drawsModal'
+import SoonModal from './components/soonModal'
 
 export default function Home() {
 
@@ -16,6 +17,7 @@ export default function Home() {
     const [openInvitation, setOpenInvitation] = useState(false)
     const [openClaimModal, setOpenClaimModal] = useState(false)
     const [openDrawsModal, setOpenDrawsModal] = useState(false)
+    const [openSoonModal, setOpenSoonModal] = useState(false)
 
     const [animation, setAnimation] = useState(false)
 
@@ -38,22 +40,20 @@ export default function Home() {
         console.log(info);
     }, [])
 
-    console.log(import.meta.env.BASE_URL);
-    
-
     return (
         <div className={styles.home}>
             {/* 所有光源 */}
             <div className={styles.allLamplight}></div>
             <div className={styles.header}>
                 <div className={styles.wallet}>
-                    <div>
-                        <img src="images/balanceImg.png" width={120} height={44} alt="" />
+                    <div className={styles.balance}>
+                        <span>2345.16</span>
                     </div>
-                    <div className={styles.walletBtn}>Wallet</div>
+                    <div className={styles.walletBtn} onClick={() => setOpenSoonModal(true)}>Wallet</div>
                 </div>
                 <div className={styles.claimNum}>
-                    <img src="images/claim.png" width={120} height={43} alt="" />
+                    <span>1</span>
+                    {/* <img src="images/claim.png" width={120} height={43} alt="" /> */}
                 </div>
             </div>
 
@@ -96,6 +96,8 @@ export default function Home() {
             <ClaimModal openModal={openClaimModal} setOpenModal={handleCloseClaimModal} />
 
             <DrawsModal openModal={openDrawsModal} setOpenModal={() => setOpenDrawsModal(false)} />
+
+            <SoonModal openModal={openSoonModal} setOpenModal={() => setOpenSoonModal(false)} />
         </div>
     )
 }

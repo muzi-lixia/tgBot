@@ -13,23 +13,29 @@ export default function DrawsModal({
         <Modal
             title={null}
             open={openModal}
-            width={282}
+            width={300}
             footer={null}
             closable={false}
+            centered
+            classNames={{mask: styles.mask}}
             className={styles.modal}
         >
-            <div className={styles.headerImg}></div>
+            <div className={styles.headerImg}>
+                <img src="images/draws.png" width={96} height={99} alt="" />
+            </div>
             <div className={styles.shadow}></div>
             <div className={styles.context}>
-                <div className={styles.title}>次数不够了</div>
-                <div className={styles.desc}>距离下次抽奖还有 05:40:30</div>
-                <div className={styles.desc}>或邀请好友获得额外次数</div>
+                <div className={styles.title}>Out of Draws!</div>
+                <div className={styles.desc}>The next draw is available in xx:xx:xx.</div>
+                <div className={styles.desc}>Invite your friends to earn bonus draws!</div>
                 <div className={styles.btn}>
-                    {/* <Button>邀请好友</Button> */}
+                    <span>Invite Friends</span>
                 </div>
             </div>
 
-            <div className={styles.closeBtn} onClick={() => setOpenModal()}>X</div>
+            <div className={styles.closeBtn} onClick={() => setOpenModal()}>
+                <img src="images/close-o.png" width={30} height={30} alt="" />
+            </div>
         </Modal>
     )
 }

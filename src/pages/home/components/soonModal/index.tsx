@@ -1,8 +1,7 @@
 import styles from './index.module.scss'
 import { Modal } from 'antd'
 
-
-export default function ClaimModal({
+export default function SoonModal({
     openModal,
     setOpenModal
 } : {
@@ -14,23 +13,24 @@ export default function ClaimModal({
         <Modal
             title={null}
             open={openModal}
-            width={348}
+            width={300}
             footer={null}
             closable={false}
             centered
-            className={styles.modal}
             classNames={{mask: styles.mask}}
+            className={styles.modal}
         >
+            <div className={styles.headerImg}>
+                <img src="images/comingsoon.png" width={70} height={70} alt="" />
+            </div>
+            <div className={styles.shadow}></div>
             <div className={styles.context}>
-                <img src="images/gold.png" width={350} height={350} alt="" />
-                <div className={styles.text}>
-                    <div>Congratulations!</div>
-                    <div>You have earned 0.01 $TPUSD!</div>
+                <div className={styles.title}>Coming soon</div>
+                <div className={styles.btn}>
+                    <span>Go it!</span>
                 </div>
             </div>
-            <div className={styles.shareBtn}>
-                <span>Share it!</span>
-            </div>
+
             <div className={styles.closeBtn} onClick={() => setOpenModal()}>
                 <img src="images/close-o.png" width={30} height={30} alt="" />
             </div>
