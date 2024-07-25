@@ -33,7 +33,7 @@ export default function Reward({
                         <div className={styles.prizeRow} key={index}>
                             <div className={styles.left}>
                                 <img src="/images/tpusd.png" width={34} height={34} alt="" />
-                                <span className={styles.num}>0.01 TPUSD</span>
+                                <span className={styles.num}>{item} TPUSD</span>
                             </div>
                             <div className={styles.date}>2024/03/09 12:34:40</div>
                         </div>
