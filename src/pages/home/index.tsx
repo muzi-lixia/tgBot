@@ -1,5 +1,4 @@
-import WebApp from '@twa-dev/sdk'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import styles from './index.module.scss'
 import Rules from './components/rules'
 import Ranking from './components/ranking'
@@ -8,7 +7,6 @@ import Reward from './components/reward'
 import ClaimModal from './components/claimModal'
 import DrawsModal from './components/drawsModal'
 import SoonModal from './components/soonModal'
-// import axios from '@/apis/axios'
 
 type CustomStyle = {
     '--time'?: string
@@ -61,23 +59,6 @@ export default function Home() {
         setInvitationNum(0)
         setOpenInvitation(false)
     }
-
-    // const getJwtToken = async () => {
-    //     try {
-    //         const result = await axios({
-
-    //         })
-    //     } catch (error) {
-            
-    //     }
-    // }
-
-    useEffect(() => {
-        const info = WebApp.initDataUnsafe
-        console.log(WebApp.initData);
-        console.log(WebApp.initDataUnsafe);
-        console.log(info);
-    }, [])
 
     return (
         <div className={styles.home}>
