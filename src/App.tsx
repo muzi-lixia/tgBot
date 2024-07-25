@@ -36,20 +36,6 @@ function App() {
         if (initData && !sessionStorage.getItem('jwtToken')) {
             getJwtToken(initData)
         }
-
-        (async function() {
-            try {
-                const result = await axios({
-                    method: 'GET',
-                    url: API.GET_ACTIVE_LIST
-                })
-                console.log(result);
-                
-            } catch (error) {
-                console.log(error);
-                
-            }
-        })()
     }, [])
 
     return (
