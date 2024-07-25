@@ -43,7 +43,7 @@ export default function Rules({
                                 </div>
                                 <div className={styles.tpusd}>
                                     <div className={styles.balance}>1973.98</div>
-                                    <div className={styles.unit}>TPUSD</div>
+                                    <div className={styles.unit}>$TPUSD</div>
                                 </div>
                             </div>
                         ))

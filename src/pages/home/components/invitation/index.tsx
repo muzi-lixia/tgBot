@@ -2,9 +2,11 @@ import styles from './index.module.scss'
 import { Drawer } from 'antd'
 
 export default function Rules({
+    invitationNum,
     openDrawer,
     setOpenDrawer
 } : {
+    invitationNum: number
     openDrawer: boolean,
     setOpenDrawer: () => void
 }) {
@@ -27,7 +29,14 @@ export default function Rules({
                 </div>
             </div>
             <div className={styles.context}>
-                <div className={styles.inviteNum}>You have invited xxx friends, and earned xx bonuses</div>
+                <div className={styles.inviteNum}>
+                    You have invited { invitationNum } friends,
+                    {
+                        invitationNum < 2 ? `and earned ${invitationNum} bonus` :
+                            invitationNum < 10 ? `and earned ${invitationNum} bonuses` :
+                            `maximum 10 bonuses`
+                    }
+                </div>
                 <div className={styles.inviteStep}>
                     <div className={styles.step1}>
                         <span>Send the Invitaion</span>

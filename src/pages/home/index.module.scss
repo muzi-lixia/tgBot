@@ -203,15 +203,16 @@
         right: 10px;
         // top: 270px;
         top: 310px;
-        z-index: -1;
+        z-index: 0;
         animation: goldCoinAnim 1.5s linear infinite alternate-reverse;
     }
 
     .animation {
-        animation: translateAnim 2s linear forwards;
+        animation: translateAnim var(--time) linear forwards;
+
         img {
             transform-origin: center center;
-            animation: rotateAnim 0.5s linear infinite;
+            animation: rotateAnim 0.4s linear infinite;
         }
     }
 
@@ -309,8 +310,12 @@
         transform: translate(0, 0);
     }
 
+    30% {
+        transform: translate(0, -60px);
+    }
+
     99% {
-        transform: translate(-130px, -140px);
+        transform: translate(-130px, -60px);
         opacity: 1;
     }
 

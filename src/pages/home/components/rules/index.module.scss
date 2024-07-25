@@ -8,37 +8,124 @@
             font-family: PingFangSC, PingFang SC;
             font-weight: 500;
             font-size: 26px;
-            color: #6F542A;
+            color: #3C2E17;
             line-height: 37px;
         }
     }
 
     .context {
-        display: flex;
-        flex-direction: column;
-        row-gap: 18px;
         margin-top: 16px;
         overflow: auto;
         height: calc(100% - 60px);
+        font-family: PingFangSC, PingFang SC;
+        font-weight: 400;
+        font-size: 12px;
+        color: #6F542A;
+        line-height: 18px;
 
         &::-webkit-scrollbar {
             width: 0;
         }
 
-        div {
-            font-family: PingFangSC, PingFang SC;
+        .labelName {
             font-weight: 500;
-            font-size: 13px;
-            color: #6F542A;
-            line-height: 18px;
         }
 
-        .tip {
+        .start {
+            color: #FF5531;
+        }
+
+        .first,
+        .section {
+            display: flex;
+            flex-direction: column;
+            row-gap: 18px;
+        }
+
+        .section {
+            margin-top: 36px;
+            padding-bottom: 22px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .title {
             font-family: PingFangSC, PingFang SC;
-            font-weight: 400;
-            font-size: 12px;
-            color: #6F542A;
-            line-height: 17px;
+            font-weight: 500;
+            font-size: 16px;
+            color: #3C2E17;
+            line-height: 22px;
+        }
+
+        .rewardsCollection {
+            margin-top: 24px;
+
+            ul {
+                display: flex;
+                flex-direction: column;
+                row-gap: 16px;
+                margin: 16px 0 0;
+                padding: 0 0 0 20px;
+
+                li {
+                    font-family: PingFangSC, PingFang SC;
+                    font-weight: 400;
+                    font-size: 13px;
+                    color: #6F542A;
+                    line-height: 18px;
+                }
+            }
+
+            .forExample {
+                margin-top: 16px;
+                padding-bottom: 22px;
+                font-family: PingFangSC, PingFang SC;
+                font-weight: 400;
+                font-size: 12px;
+                color: #6F542A;
+                line-height: 17px;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            }
+
+            span {
+                color: #517BFF;
+            }
+        }
+
+        .gameDuration {
+            margin-top: 22px;
+
+            ul, li {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+
+            ul {
+                display: flex;
+                flex-direction: column;
+                row-gap: 10px;
+                margin-top: 12px;
+            }
+
+            li {
+                display: flex;
+                column-gap: 10px;
+                font-family: PingFangSC, PingFang SC;
+                font-weight: 400;
+                font-size: 13px;
+                color: #6F542A;
+
+                .phase {
+                    font-weight: 500;
+                    line-height: 18px;
+                }
+
+                .desc {
+                    flex: 1;
+                    margin-top: -3px;
+                    line-height: 24px;
+                }
+            }
         }
     }
 
