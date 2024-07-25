@@ -8,6 +8,7 @@ import Reward from './components/reward'
 import ClaimModal from './components/claimModal'
 import DrawsModal from './components/drawsModal'
 import SoonModal from './components/soonModal'
+// import axios from '@/apis/axios'
 
 export default function Home() {
 
@@ -33,6 +34,16 @@ export default function Home() {
         setAnimation(false)
     }
 
+    // const getJwtToken = async () => {
+    //     try {
+    //         const result = await axios({
+
+    //         })
+    //     } catch (error) {
+            
+    //     }
+    // }
+
     useEffect(() => {
         const info = WebApp.initDataUnsafe
         console.log(WebApp.initData);
@@ -53,7 +64,6 @@ export default function Home() {
                 </div>
                 <div className={styles.claimNum}>
                     <span>1</span>
-                    {/* <img src="images/claim.png" width={120} height={43} alt="" /> */}
                 </div>
             </div>
 
