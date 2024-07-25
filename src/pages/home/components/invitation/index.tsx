@@ -17,7 +17,7 @@ export default function Rules({
             onClose={() => setOpenDrawer()}
             open={openDrawer}
             key={'bottom'}
-            height={'75%'}
+            height={'80%'}
             rootClassName={styles.drawer}
         >
             <div className={styles.customHeader}>

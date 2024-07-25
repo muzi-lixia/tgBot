@@ -6,7 +6,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    background-position: center;
+    // background-position: center;
     z-index: 1;
     overflow: hidden;
 
@@ -19,7 +19,7 @@
         z-index: -1;
         background: url('/images/allLamplight.png');
         background-size: cover;
-        background-position: center;
+        // background-position: center;
         background-attachment: fixed;
         background-repeat: no-repeat;
         animation: goldCoinLamplight 1.5s linear infinite alternate-reverse;
@@ -35,7 +35,7 @@
         background: url('/images/bg2.png');
         background-repeat: no-repeat;
         background-size: cover;
-        background-position: center;
+        // background-position: center;
         background-attachment: fixed;
         animation: anim2 3s infinite linear;
         z-index: -1;
@@ -51,7 +51,7 @@
         background: url('/images/bg1.png');
         background-repeat: no-repeat;
         background-size: cover;
-        background-position: center;
+        // background-position: center;
         background-attachment: fixed;
         animation: anim 0.5s infinite linear;
         z-index: -1;
@@ -194,7 +194,8 @@
     .goldCoin {
         position: absolute;
         right: 10px;
-        top: 270px;
+        // top: 270px;
+        top: 300px;
         z-index: -1;
         animation: goldCoinAnim 1.5s linear infinite alternate-reverse;
     }
