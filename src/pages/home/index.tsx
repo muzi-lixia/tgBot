@@ -59,7 +59,7 @@ export default function Home({
             const result = await API_METHOD.postUserLuckAward()
             setClaimTpusd(result.data.ClaimTpusd)
             getUserDetail()
-            if ((new Date().getTime() - time) < 3) {
+            if ((new Date().getTime() - time) < 3000) {
                 setTimeout(() => {
                     setOpenClaimModal(true)
                     setAnimation(false)
