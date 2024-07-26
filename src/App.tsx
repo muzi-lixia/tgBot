@@ -8,7 +8,7 @@ import * as API_METHOD from '@/context/index'
 function App() {
     eruda.init()
 
-    const [jwt, setJwt] = useState('')
+    const [jwt, setJwt] = useState(sessionStorage.getItem('jwt') || '')
 
     // 获取token
     const getJwtToken = async (data: string) => {

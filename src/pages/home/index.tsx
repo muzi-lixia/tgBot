@@ -98,7 +98,7 @@ export default function Home({
             setRankingLoading(true)
             setOpenRank(true)
             const ranking = await API_METHOD.getRankList()
-            setRankingList(ranking.data.userRankList)
+            setRankingList(ranking.data.userRankList || [])
             setRankingLoading(false)
         } catch (error) {
             setRankingList([])
@@ -115,7 +115,7 @@ export default function Home({
             setOpenReward(true)
             const reward = await API_METHOD.getUserAssetList()
             setRewardLoading(false)
-            setRewardList(reward.data.userAssetList)
+            setRewardList(reward.data.userAssetList || [])
         } catch (error) {
             setRewardList([])
             setRewardLoading(false)
@@ -126,7 +126,7 @@ export default function Home({
     const getUserDetail = async () => {
         try {
             const detail = await API_METHOD.getUserDetail()
-            setUserDetail(detail.data)
+            setUserDetail(detail.data || {})
         } catch (error) {}
     }
     useEffect(() => {
