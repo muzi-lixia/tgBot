@@ -2,11 +2,11 @@
     position: relative;
     width: 100%;
     height: 100vh;
-    background: url('/images/bg.png');
+    background: url('https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/bg.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    // background-position: center;
+    background-position: top center;
     z-index: 1;
     overflow: hidden;
 
@@ -17,7 +17,7 @@
         width: 100%;
         height: 100vh;
         z-index: -1;
-        background: url('/images/allLamplight.png');
+        background: url('https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/allLamplight.png');
         background-size: cover;
         // background-position: center;
         background-attachment: fixed;
@@ -32,11 +32,11 @@
         top: 0;
         width: 100%;
         height: 100vh;
-        background: url('/images/bg2.png');
+        background: url('https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/bg2.png');
         background-repeat: no-repeat;
         background-size: cover;
         // background-position: center;
-        background-attachment: fixed;
+        // background-attachment: fixed;
         animation: anim2 2s infinite linear;
         z-index: -1;
     }
@@ -45,16 +45,17 @@
         position: absolute;
         content: '';
         left: 0;
-        top: 0;
+        top: 2px;
         width: 100%;
         height: 100vh;
-        background: url('/images/bg1.png');
+        background: url('https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/bg1.png');
         background-repeat: no-repeat;
         background-size: cover;
         // background-position: center;
-        background-attachment: fixed;
-        animation: anim 0.5s infinite linear;
+        // background-attachment: fixed;
+        animation: anim 0.2s infinite linear;
         z-index: -1;
+        opacity: 0;
     }
 
     .header {
@@ -71,18 +72,18 @@
                 align-items: center;
                 width: 120px;
                 height: 44px;
-                background: url('/images/balanceImg.png');
+                background: url('https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/balanceImg.png');
                 background-position: center;
                 background-repeat: no-repeat;
                 background-size: cover;
 
                 span {
+                    margin-top: -2px;
                     margin-left: 22px;
                     font-family: Alibaba-PuHuiTi, Alibaba-PuHuiTi;
                     font-weight: normal;
                     font-size: 12px;
                     color: #42413D;
-                    line-height: 17px;
                 }
             }
     
@@ -90,7 +91,7 @@
                 position: relative;
                 width: 102px;
                 height: 32px;
-                font-family: PingFangSC, PingFang SC;
+                font-family: Alibaba-PuHuiTi, Alibaba-PuHuiTi;
                 font-weight: 500;
                 font-size: 12px;
                 color: #6F542A;
@@ -130,18 +131,18 @@
                 align-items: center;
                 width: 120px;
                 height: 100%;
-                background: url('/images/claim.png');
+                background: url('https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/claim.png');
                 background-position: center;
                 background-repeat: no-repeat;
                 background-size: cover;
     
                 span {
+                    margin-top: 4px;
                     margin-left: 20px;
                     font-family: Alibaba-PuHuiTi, Alibaba-PuHuiTi;
                     font-weight: normal;
                     font-size: 12px;
                     color: #42413D;
-                    line-height: 17px;
                 }
             }
         }
@@ -163,6 +164,8 @@
             width: 70px;
             height: 74px;
             font-size: 10px;
+            color: #6F542A;
+            line-height: 14px;
 
             &::before {
                 position: absolute;
@@ -171,7 +174,7 @@
                 top: 0;
                 width: 100%;
                 height: 100%;
-                background-image: url('/images/btn-1.png');
+                background-image: url('https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/btn-1.png');
                 background-repeat: no-repeat;
                 background-size: contain;
                 z-index: -1;
@@ -180,7 +183,7 @@
 
             &:active {
                 &::before {
-                    background-image: url('/images/btn-2.png');
+                    background-image: url('https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/btn-2.png');
                 }
             }
         }
@@ -216,7 +219,7 @@
 
         img {
             transform-origin: center center;
-            animation: rotateAnim 0.4s linear infinite;
+            // animation: rotateAnim 0.4s linear infinite;
         }
     }
 
@@ -232,12 +235,12 @@
         width: 175px;
         height: 65px;
         transform: translateX(-50%);
-        background-image: url('/images/claim-1.png');
+        background-image: url('https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/claim-1.png');
         background-size: cover;
         transition: background-image 0.3s;
 
         &:active {
-            background-image: url('/images/claim-2.png');
+            background-image: url('https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/claim-2.png');
         }
     }
 }
@@ -247,16 +250,12 @@
         opacity: 0;
     }
 
-    10% {
-        opacity: 0;
-    }
-
-    90% {
+    50% {
         opacity: 1;
     }
 
     100% {
-        opacity: 1;
+        opacity: 0;
     }
 }
 
@@ -311,14 +310,26 @@
 
 @keyframes translateAnim {
     0% {
-        transform: translate(0, 0);
+        transform: translate(0, 0) rotateY(0);
+    }
+
+    15% {
+        transform: translate(0, -30px) rotateY(720deg);
     }
 
     30% {
-        transform: translate(0, -60px);
+        transform: translate(0, -60px) rotateY(1440deg);
+    }
+
+    45% {
+        transform: translate(-20px, -60px) rotateY(1000deg);
+    }
+
+    60% {
+        transform: translate(-50px, -60px) rotateY(720deg);
     }
 
     100% {
-        transform: translate(-130px, -60px);
+        transform: translate(-130px, -60px) rotateY(360deg);
     }
 }

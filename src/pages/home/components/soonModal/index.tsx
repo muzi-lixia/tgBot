@@ -21,7 +21,7 @@ export default function SoonModal({
             className={styles.modal}
         >
             <div className={styles.headerImg}>
-                <img src="images/comingsoon.png" width={70} height={70} alt="" />
+                <img src="https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/comingsoon.png" width={70} height={70} alt="" />
             </div>
             <div className={styles.shadow}></div>
             <div className={styles.context}>
@@ -32,7 +32,7 @@ export default function SoonModal({
             </div>
 
             <div className={styles.closeBtn} onClick={() => setOpenModal()}>
-                <img src="images/close-o.png" width={30} height={30} alt="" />
+                <img src="https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/close-o.png" width={30} height={30} alt="" />
             </div>
         </Modal>
     )

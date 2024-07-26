@@ -39,7 +39,7 @@ export default function Rules({
             <div className={styles.customHeader}>
                 <div className={styles.title}>Invitation</div>
                 <div onClick={() => setOpenDrawer()}>
-                    <img src={'images/close.png'} width={30} height={30} alt="" />
+                    <img src={'https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/close.png'} width={30} height={30} alt="" />
                 </div>
             </div>
             <div className={styles.context}>
@@ -53,12 +53,15 @@ export default function Rules({
                 </div>
                 <div className={styles.inviteStep}>
                     <div className={styles.step1}>
+                        <img src="https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/step1.png" alt="" />
                         <span>Send the Invitaion</span>
                     </div>
                     <div className={styles.step2}>
+                        <img src="https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/step2.png" alt="" />
                         <span>Friends Come and Play</span>
                     </div>
                     <div className={styles.step3}>
+                        <img src="https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/step3.png" alt="" />
                         <span>Earn the Extra Bonus</span>
                     </div>
                 </div>

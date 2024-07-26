@@ -41,7 +41,7 @@ export default function DrawsModal({
             className={styles.modal}
         >
             <div className={styles.headerImg}>
-                <img src="images/draws.png" width={96} height={99} alt="" />
+                <img src="https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/draws.png" width={96} height={99} alt="" />
             </div>
             <div className={styles.shadow}></div>
             <div className={styles.context}>
@@ -54,7 +54,7 @@ export default function DrawsModal({
             </div>
 
             <div className={styles.closeBtn} onClick={() => setOpenModal()}>
-                <img src="images/close-o.png" width={30} height={30} alt="" />
+                <img src="https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/close-o.png" width={30} height={30} alt="" />
             </div>
         </Modal>
     )

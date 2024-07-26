@@ -43,9 +43,11 @@ export default function Home({
     const [claimTpusd, setClaimTpusd] = useState('')
     // click claim btn
     const handleClickClaim = async () => {
-        if (!userDetail?.syncInviteCount || (userDetail?.nextSyncTime * 1000 > new Date().getTime())) {
-            setOpenDrawsModal(true)
-            return
+        if (!userDetail?.syncInviteCount) {
+            if (userDetail?.nextSyncTime && userDetail?.nextSyncTime * 1000 > new Date().getTime()) {
+                setOpenDrawsModal(true)
+                return
+            }
         }
         if (animation) {
             // 防止重复点击
@@ -60,9 +62,11 @@ export default function Home({
             if ((new Date().getTime() - time) < 3) {
                 setTimeout(() => {
                     setOpenClaimModal(true)
+                    setAnimation(false)
                 }, 3000)
             } else {
                 setOpenClaimModal(true)
+                setAnimation(false)
             }
         } catch (error) {
             setOpenClaimModal(false)
@@ -196,26 +200,26 @@ export default function Home({
             {/* 左侧按钮 */}
             <div className={styles.btnGroup}>
                 <div className={styles.rules} onClick={() => setOpenRules(true)}>
-                    <img src="images/rules.png" width={44} height={44} alt="" />
+                    <img src="https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/rules.png" width={44} height={44} alt="" />
                     <span>Rules</span>
                 </div>
                 <div className={styles.record} onClick={handleClickRewardModal}>
-                    <img src="images/record.png" width={32} height={34} alt="" />
+                    <img src="https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/record.png" width={32} height={34} alt="" />
                     <span>Reward</span>
                 </div>
                 <div className={styles.rank} onClick={handleClickOpenRankingModal}>
-                    <img src="images/rank.png" width={44} height={33} alt="" />
+                    <img src="https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/rank.png" width={44} height={33} alt="" />
                     <span>Rank</span>
                 </div>
                 <div className={styles.invitation} onClick={handleClickInvitationModal}>
-                    <img src="images/invitation.png" width={32} height={30} alt="" />
+                    <img src="https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/invitation.png" width={32} height={30} alt="" />
                     <span>Invitation</span>
                 </div>
             </div>
 
             {/* 右侧金币动画 */}
             <div className={`${styles.goldCoin} ${animation ? styles.animation : styles.homing}`}>
-                <img src="images/goldcoin.png" width={102} height={102} alt="" />
+                <img src="https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/goldcoin.png" width={102} height={102} alt="" />
             </div>
 
             {/* 底部按钮 */}

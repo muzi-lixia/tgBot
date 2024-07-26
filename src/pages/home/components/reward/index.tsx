@@ -31,7 +31,7 @@ export default function Reward({
             <div className={styles.customHeader}>
                 <div className={styles.title}>Reward Record</div>
                 <div onClick={() => setOpenDrawer()}>
-                    <img src={'images/close.png'} width={30} height={30} alt="" />
+                    <img src={'https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/close.png'} width={30} height={30} alt="" />
                 </div>
             </div>
             <div className={styles.context}>
@@ -50,14 +50,14 @@ export default function Reward({
                             rewardList.map((item, index) => (
                                 <div className={styles.prizeRow} key={index}>
                                     <div className={styles.left}>
-                                        <img src="images/tpusd.png" width={34} height={34} alt="" />
+                                        <img src="https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/tpusd.png" width={34} height={34} alt="" />
                                         <span className={styles.num}>{ item.tpusd } TPUSD</span>
                                     </div>
                                     <div className={styles.date}>{ getTime(item.create_time, '/') }</div>
                                 </div>
                             )) :
                             <div className={styles.empty}>
-                                <img src="images/empty.png" width={95} height={93} alt="" />
+                                <img src="https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/empty.png" width={95} height={93} alt="" />
                                 <div>No Data</div>
                             </div>
                 }

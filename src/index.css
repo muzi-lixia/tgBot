@@ -45,3 +45,8 @@ body {
         background-color: #f9f9f9;
     }
 }
+
+@font-face {
+    font-family: Alibaba-PuHuiTi;
+    src: url('./assets/fonts/AlibabaPuHuiTi-3-105-Heavy.ttf');
+}

@@ -8,8 +8,8 @@ import * as API_METHOD from '@/context/index'
 
 function App() {
     eruda.init()
-    const [swipeBehavior] = initSwipeBehavior()
-    swipeBehavior.enableVerticalSwipe()
+    // const [swipeBehavior] = initSwipeBehavior()
+    // swipeBehavior.enableVerticalSwipe()
 
     const [jwt, setJwt] = useState('')
 
@@ -32,7 +32,7 @@ function App() {
     useEffect(() => {
         const initData = WebApp.initData
         console.log(initData)
-        // getJwtToken(`query_id=AAF4kt0tAwAAAHiS3S1YU-69&user=%7B%22id%22%3A7211946616%2C%22first_name%22%3A%22muzi%22%2C%22last_name%22%3A%22lixia%22%2C%22username%22%3A%22muzi_lixia%22%2C%22language_code%22%3A%22zh-hans%22%2C%22allows_write_to_pm%22%3Atrue%7D&auth_date=1721973469&hash=e600c5d0dacfc741c243d666fa5f22aff0ba795f778eb3846b5ca568c46ff422`)
+        getJwtToken(`query_id=AAF4kt0tAwAAAHiS3S1YU-69&user=%7B%22id%22%3A7211946616%2C%22first_name%22%3A%22muzi%22%2C%22last_name%22%3A%22lixia%22%2C%22username%22%3A%22muzi_lixia%22%2C%22language_code%22%3A%22zh-hans%22%2C%22allows_write_to_pm%22%3Atrue%7D&auth_date=1721973469&hash=e600c5d0dacfc741c243d666fa5f22aff0ba795f778eb3846b5ca568c46ff422`)
         if (initData && !sessionStorage.getItem('jwt')) {
             getJwtToken(initData)
         }

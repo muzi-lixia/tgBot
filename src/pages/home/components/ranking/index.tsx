@@ -30,7 +30,7 @@ export default function Rules({
             <div className={styles.customHeader}>
                 <div className={styles.title}>Ranking</div>
                 <div onClick={() => setOpenDrawer()}>
-                    <img src="images/close.png" width={30} height={30} alt="" />
+                    <img src="https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/close.png" width={30} height={30} alt="" />
                 </div>
             </div>
             <div className={styles.context}>
@@ -58,7 +58,7 @@ export default function Rules({
                                             <div className={styles.no}>
                                                 {
                                                     index < 3 ?
-                                                        <img src={`images/no${index + 1}.png`} alt="" width={33} height={35} />
+                                                        <img src={`https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/no${index + 1}.png`} alt="" width={33} height={35} />
                                                         : <span className={styles.num}>{index + 1}</span>
                                                 }
                                                 <span className={styles.name}>{ item.botUserName || '--' }</span>
@@ -70,7 +70,7 @@ export default function Rules({
                                         </div>
                                     )) :
                                     <div className={styles.empty}>
-                                        <img src="images/empty.png" width={95} height={93} alt="" />
+                                        <img src="https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/empty.png" width={95} height={93} alt="" />
                                         <div>No Data</div>
                                     </div>
                             }
