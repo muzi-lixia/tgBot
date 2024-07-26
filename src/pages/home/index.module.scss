@@ -215,9 +215,12 @@
     }
 
     .animation {
-        animation: translateAnim 3s linear forwards;
+        animation: translateAnim 4s linear forwards;
 
         img {
+            transform-style: preserve-3d;
+            /* 设置一个较小的透视，增加深度感 */
+            perspective: 50px;
             transform-origin: center center;
             // animation: rotateAnim 0.4s linear infinite;
         }
@@ -314,19 +317,19 @@
     }
 
     15% {
-        transform: translate(0, -30px) rotateY(720deg);
+        transform: translate(0, -30px) rotateY(900deg);
     }
 
     30% {
-        transform: translate(0, -60px) rotateY(1440deg);
+        transform: translate(0, -60px) rotateY(1800deg);
     }
 
     45% {
-        transform: translate(-20px, -60px) rotateY(1000deg);
+        transform: translate(-20px, -60px) rotateY(1200deg);
     }
 
     60% {
-        transform: translate(-50px, -60px) rotateY(720deg);
+        transform: translate(-50px, -60px) rotateY(900deg);
     }
 
     100% {
