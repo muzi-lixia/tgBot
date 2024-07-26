@@ -10,7 +10,7 @@ export default defineConfig({
         outDir: './docs',
         chunkSizeWarningLimit: 1600
     },
-    base: './',
+    base: '/terpollyBot/',
     resolve: {
         alias: {
             '@': path.resolve(__dirname, './src')
