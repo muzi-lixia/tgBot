@@ -61,12 +61,12 @@ export default function Rules({
                 <div className={styles.rewardsCollection}>
                     <div className={styles.title}>Rewards Collection:</div>
                     <ul>
-                        <li>From August 5th, players who have accumulated over 100 $TPUSD Rewards will be eligible for an airdrop of the 100 $TPUSD to the connected wallet, and players can swap the 100 $TPUSD for 100 $USDT immediately on <span>TerpLayer.com</span> - The Cross-Chain service will be available on TerpLayer from August 5th.</li>
-                        <li>All rewards can be redeemed as price deduction in the <span>Terpolly Inscription events</span> on August 12th, 2024.</li>
-                        <li>After August 12th, players can add $TPUSD to their existing rewards amount, and once the total TPUSD reaches 100, the existing $TPUSD rewards will be airdropped to the players to swap for $USDT immediately on the <span>TerpLayer.com</span></li>
+                        <li>From August 5th, players who have accumulated over 100 $TPUSD Rewards will be eligible for an airdrop of the 100 $TPUSD to the connected wallet, and players can swap the 100 $TPUSD for 100 $USDT immediately on <a href='https://terplayer.org/' target='_blank'>TerpLayer.com</a> - The Cross-Chain service will be available on TerpLayer from August 5th.</li>
+                        <li>All rewards can be redeemed as price deduction in the <a href='https://terplayer.org/terpolly/' target='_blank'>Terpolly Inscription events</a> on August 12th, 2024.</li>
+                        <li>After August 12th, players can add $TPUSD to their existing rewards amount, and once the total TPUSD reaches 100, the existing $TPUSD rewards will be airdropped to the players to swap for $USDT immediately on the <a href='https://terplayer.org/' target='_blank'>TerpLayer.com</a></li>
                     </ul>
                     <div className={styles.forExample}>
-                        For example, if I have 20 $TPUSD reward remaining on the game account after August 12th, then I can buy 80 $TPUSD in the connect wallet, and I will be airdropped with the 20 $TPUSD to my wallet as the rewards collection. The total 100 $TPUSD can be swapped to $USDT immediately with the cross-chain service at <span>TerpLayer.com</span>
+                        For example, if I have 20 $TPUSD reward remaining on the game account after August 12th, then I can buy 80 $TPUSD in the connect wallet, and I will be airdropped with the 20 $TPUSD to my wallet as the rewards collection. The total 100 $TPUSD can be swapped to $USDT immediately with the cross-chain service at <a href='https://terplayer.org/' target='_blank'>TerpLayer.com</a>
                     </div>
                 </div>
                 <div className={styles.gameDuration}>
