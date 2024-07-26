@@ -4,10 +4,16 @@ import { Modal } from 'antd'
 import { initUtils } from '@telegram-apps/sdk'
 
 export default function DrawsModal({
+    countDate,
     inviteCode,
     openModal,
     setOpenModal
 } : {
+    countDate: {
+        hour: string
+        minute: string
+        second: string
+    }
     inviteCode: string
     openModal: boolean
     setOpenModal: () => void
@@ -15,10 +21,12 @@ export default function DrawsModal({
 
     // 邀请好友
     const handleClickInvitationFriends = () => {
-        const utils = initUtils();
-        utils.openTelegramLink(
-            `https://t.me/share/url?url=${BOT_URL}?startapp=${inviteCode}`
-        )
+        try {
+            const utils = initUtils();
+            utils.openTelegramLink(
+                `https://t.me/share/url?url=${BOT_URL}?startapp=${inviteCode}`
+            )
+        } catch (error) {}
     }
 
     return (
@@ -38,7 +46,7 @@ export default function DrawsModal({
             <div className={styles.shadow}></div>
             <div className={styles.context}>
                 <div className={styles.title}>Out of Draws!</div>
-                <div className={styles.desc}>The next draw is available in xx:xx:xx.</div>
+                <div className={styles.desc}>The next draw is available in { `${countDate.hour}:${countDate.minute}:${countDate.second}` }.</div>
                 <div className={styles.desc}>Invite your friends to earn bonus draws!</div>
                 <div className={styles.btn} onClick={handleClickInvitationFriends}>
                     <span>Invite Friends</span>

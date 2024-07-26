@@ -44,11 +44,10 @@ export default function Home({
     const [claimTpusd, setClaimTpusd] = useState('')
     // click claim btn
     const handleClickClaim = async () => {
-        // const time1 = 1000 * 60 * 60 * 6
-        // const lastSyncTime = (userDetail?.lastSyncTime && userDetail?.lastSyncTime * 1000) || 0
-        // const currentTime = new Date().getTime()
-
-        if (userDetail?.lastSyncTime && userDetail?.lastSyncTime * 1000 )
+        if (!userDetail?.syncInviteCount || (userDetail?.nextSyncTime * 1000 > new Date().getTime())) {
+            setOpenDrawsModal(true)
+            return
+        }
         if (animation) {
             // 防止重复点击
             return
@@ -120,9 +119,6 @@ export default function Home({
         }
     }
 
-    console.log(userDetail?.nextSyncTime)
-    // const deadline = useCountdown({deadline: userDetail?.nextSyncTime || new Date().getTime()})
-    // console.log(deadline)
     // 获取用户详情
     const getUserDetail = async () => {
         try {
@@ -135,6 +131,44 @@ export default function Home({
             getUserDetail()
         }
     }, [jwt])
+
+    // 倒计时
+    const [countDate, setCountDate] = useState({
+        hour: '00',
+        minute: '00',
+        second: '00'
+    })
+
+    const countDown = (end: number) => {
+        const intervalId = setInterval(async () => {
+            const currentTimes = new Date().getTime();
+            let remaining = (end * 1000) - currentTimes; // 计算倒计时剩余的秒数
+            if (remaining > 0) {
+                let hour = Math.floor((remaining / (1000 * 60 * 60)) % 24)
+                let minute = Math.floor((remaining / (1000 * 60)) % 60);
+                let second = Math.floor((remaining / 1000) % 60);
+                setCountDate({
+                    hour: hour.toString().padStart(2, '0'),
+                    minute: minute.toString().padStart(2, '0'),
+                    second: second.toString().padStart(2, '0'),
+                })
+            } else {
+                setCountDate({
+                    hour: '00',
+                    minute: '00',
+                    second: '00'
+                })
+                clearInterval(intervalId)
+                getUserDetail()
+            }
+        }, 1000)
+    }
+
+    useEffect(() => {
+        if (userDetail?.nextSyncTime) {
+            countDown(userDetail.nextSyncTime)
+        }
+    }, [userDetail?.nextSyncTime])
 
     return (
         <div className={styles.home}>
@@ -149,7 +183,13 @@ export default function Home({
                 </div>
                 <div className={styles.placeholder}>
                     <div className={styles.claimNum}>
-                        <span>{ userDetail?.syncInviteCount }</span>
+                        <span>
+                            {
+                                userDetail?.syncInviteCount ||
+                                (userDetail?.nextSyncTime &&
+                                `${countDate.hour}:${countDate.minute}:${countDate.second}`) || ''
+                            }
+                        </span>
                     </div>
                 </div>
             </div>
@@ -191,7 +231,7 @@ export default function Home({
             {/* claim modal */}
             <ClaimModal claimTpusd={claimTpusd} openModal={openClaimModal} setOpenModal={handleCloseClaimModal} />
             {/* out of draws modal */}
-            <DrawsModal inviteCode={userDetail?.inviteCode || ''} openModal={openDrawsModal} setOpenModal={() => setOpenDrawsModal(false)} />
+            <DrawsModal countDate={countDate} inviteCode={userDetail?.inviteCode || ''} openModal={openDrawsModal} setOpenModal={() => setOpenDrawsModal(false)} />
             {/* wallet coming soon modal */}
             <SoonModal openModal={openSoonModal} setOpenModal={() => setOpenSoonModal(false)} />
         </div>

@@ -1,5 +1,5 @@
 import styles from './index.module.scss'
-import { BOT_URL } from '@/const/constants'
+import { BOT_URL, SHARE_TEXT } from '@/const/constants'
 import { Modal } from 'antd'
 import { initUtils } from '@telegram-apps/sdk'
 
@@ -15,10 +15,13 @@ export default function ClaimModal({
 
     // 分享
     const handleClickShare = () => {
-        const utils = initUtils();
-        utils.openTelegramLink(
-            `https://t.me/share/url?url=${BOT_URL}`
-        )
+        try {
+            const utils = initUtils();
+            utils.shareURL(
+                `${BOT_URL}`,
+                SHARE_TEXT
+            )
+        } catch (error) {}
     }
 
     return (
