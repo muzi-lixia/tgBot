@@ -8,7 +8,6 @@ import ClaimModal from './components/claimModal'
 import DrawsModal from './components/drawsModal'
 import SoonModal from './components/soonModal'
 import * as API_METHOD from '@/context/index'
-// import useCountdown from '@/hooks'
 
 export default function Home({
     jwt
