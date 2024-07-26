@@ -3,9 +3,11 @@ import { Modal } from 'antd'
 
 
 export default function ClaimModal({
+    claimTpusd,
     openModal,
     setOpenModal
 } : {
+    claimTpusd: string
     openModal: boolean,
     setOpenModal: () => void
 }) {
@@ -25,7 +27,7 @@ export default function ClaimModal({
                 <img src="images/gold.png" width={350} height={350} alt="" />
                 <div className={styles.text}>
                     <div>Congratulations!</div>
-                    <div>You have earned 0.01 $TPUSD!</div>
+                    <div>You have earned { claimTpusd } $TPUSD!</div>
                 </div>
             </div>
             <div className={styles.shareBtn}>

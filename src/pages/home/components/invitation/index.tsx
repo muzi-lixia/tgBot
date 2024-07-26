@@ -30,7 +30,7 @@ export default function Rules({
             </div>
             <div className={styles.context}>
                 <div className={styles.inviteNum}>
-                    You have invited { invitationNum } friends,
+                    You have invited { 10 - invitationNum } friends,
                     {
                         invitationNum < 2 ? `and earned ${invitationNum} bonus` :
                             invitationNum < 10 ? `and earned ${invitationNum} bonuses` :

@@ -2,6 +2,32 @@ import axios from '@/apis/axios'
 import API from '@/apis/constants'
 
 /**
+ * 获取jwtToken
+ * @param data 用户query_id
+ * @returns 
+ */
+export const getJwtToken = (data: string): Promise<any> => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            const result = await axios({
+                method: 'POST',
+                url: API.GET_JWT_TOKEN,
+                data: {
+                    authorization: 'tma ' + data
+                }
+            }) as any
+            if (result.code === 0) {
+                resolve(result)
+            } else {
+                reject(result)
+            }
+        } catch (error) {
+            reject(error)
+        }
+    })
+}
+
+/**
  * 用户注册
  * @param inviter 邀请码
  * @returns 

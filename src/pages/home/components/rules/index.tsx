@@ -17,7 +17,7 @@ export default function Rules({
             onClose={() => setOpenDrawer()}
             open={openDrawer}
             key={'bottom'}
-            height={'70%'}
+            height={'80%'}
             rootClassName={styles.drawer}
         >
             <div className={styles.customHeader}>
@@ -34,7 +34,7 @@ export default function Rules({
                     </div>
                     <div className={styles.rule}>
                         <span className={styles.labelName}>Earning Rewards: </span>
-                        Players can tap the 'Claim' button every 6 hours to receive a reward in the form of $TPUSD
+                        Players can check in every 6 hours to claim a reward in the form of $TPUSD
                         <span className={styles.start}>*</span>.
                     </div>
                     <div className={styles.rule}>

@@ -67,7 +67,7 @@
 
             .balance {
                 display: flex;
-                justify-content: flex-end;
+                justify-content: center;
                 align-items: center;
                 width: 120px;
                 height: 44px;
@@ -77,7 +77,7 @@
                 background-size: cover;
 
                 span {
-                    margin-right: 22px;
+                    margin-left: 22px;
                     font-family: Alibaba-PuHuiTi, Alibaba-PuHuiTi;
                     font-weight: normal;
                     font-size: 12px;
@@ -121,24 +121,28 @@
             }
         }
         
-        .claimNum {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 120px;
+        .placeholder {
             height: 44px;
-            background: url('/images/claim.png');
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
 
-            span {
-                margin-left: 20px;
-                font-family: Alibaba-PuHuiTi, Alibaba-PuHuiTi;
-                font-weight: normal;
-                font-size: 12px;
-                color: #42413D;
-                line-height: 17px;
+            .claimNum {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 120px;
+                height: 100%;
+                background: url('/images/claim.png');
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+    
+                span {
+                    margin-left: 20px;
+                    font-family: Alibaba-PuHuiTi, Alibaba-PuHuiTi;
+                    font-weight: normal;
+                    font-size: 12px;
+                    color: #42413D;
+                    line-height: 17px;
+                }
             }
         }
     }
@@ -208,7 +212,7 @@
     }
 
     .animation {
-        animation: translateAnim var(--time) linear forwards;
+        animation: translateAnim 3s linear forwards;
 
         img {
             transform-origin: center center;
@@ -314,13 +318,7 @@
         transform: translate(0, -60px);
     }
 
-    99% {
-        transform: translate(-130px, -60px);
-        opacity: 1;
-    }
-
     100% {
-        transform: translate(-130px, -140px);
-        opacity: 0;
+        transform: translate(-130px, -60px);
     }
 }

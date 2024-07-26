@@ -47,6 +47,52 @@
                 
             }
         }
+
+        .loading {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 16px;
+
+            .left {
+                display: flex;
+                align-items: center;
+                column-gap: 8px;
+
+                .img {
+                    width: 22px;
+                    height: 22px;
+                    border-radius: 50%;
+                    background: #EEEEEE;
+                }
+
+                .name {
+                    width: 85px;
+                    height: 18px;
+                    background: #EEEEEE;
+                }
+            }
+
+            .date {
+                width: 131px;
+                height: 18px;
+                background: #EEEEEE;
+            }
+        }
+
+        .empty {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 100px;
+            row-gap: 12px;
+            font-family: PingFangSC, PingFang SC;
+            font-weight: 500;
+            font-size: 13px;
+            color: #999999;
+            line-height: 18px;
+        }
     }
 
     :global {
