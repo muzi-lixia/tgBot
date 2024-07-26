@@ -8,6 +8,7 @@ import ClaimModal from './components/claimModal'
 import DrawsModal from './components/drawsModal'
 import SoonModal from './components/soonModal'
 import * as API_METHOD from '@/context/index'
+// import useCountdown from '@/hooks'
 
 export default function Home({
     jwt
@@ -33,6 +34,7 @@ export default function Home({
         lastSyncTime: number
         tpusd: string
         syncInviteCount: number
+        nextSyncTime: number
     }>()
 
     // 金币动画
@@ -118,6 +120,9 @@ export default function Home({
         }
     }
 
+    console.log(userDetail?.nextSyncTime)
+    // const deadline = useCountdown({deadline: userDetail?.nextSyncTime || new Date().getTime()})
+    // console.log(deadline)
     // 获取用户详情
     const getUserDetail = async () => {
         try {
@@ -186,7 +191,7 @@ export default function Home({
             {/* claim modal */}
             <ClaimModal claimTpusd={claimTpusd} openModal={openClaimModal} setOpenModal={handleCloseClaimModal} />
             {/* out of draws modal */}
-            <DrawsModal openModal={openDrawsModal} setOpenModal={() => setOpenDrawsModal(false)} />
+            <DrawsModal inviteCode={userDetail?.inviteCode || ''} openModal={openDrawsModal} setOpenModal={() => setOpenDrawsModal(false)} />
             {/* wallet coming soon modal */}
             <SoonModal openModal={openSoonModal} setOpenModal={() => setOpenSoonModal(false)} />
         </div>

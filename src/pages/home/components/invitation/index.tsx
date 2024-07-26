@@ -15,10 +15,15 @@ export default function Rules({
     setOpenDrawer: () => void
 }) {
 
+    // 邀请好友
     const handleClickInvitationFriends = () => {
         const utils = initUtils();
-        utils.openTelegramLink(
-            `https://t.me/share/url?url=${BOT_URL}?startapp=${inviteCode}`
+        // utils.openTelegramLink(
+        //     `https://t.me/share/url?url=${BOT_URL}?startapp=${inviteCode}`
+        // )
+        utils.shareURL(
+            `https://t.me/share/url?url=${BOT_URL}`,
+            '这里是测试文案内容'+inviteCode
         )
     }
 

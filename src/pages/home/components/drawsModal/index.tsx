@@ -1,13 +1,25 @@
 import styles from './index.module.scss'
+import { BOT_URL } from '@/const/constants'
 import { Modal } from 'antd'
+import { initUtils } from '@telegram-apps/sdk'
 
 export default function DrawsModal({
+    inviteCode,
     openModal,
     setOpenModal
 } : {
-    openModal: boolean,
+    inviteCode: string
+    openModal: boolean
     setOpenModal: () => void
 }) {
+
+    // 邀请好友
+    const handleClickInvitationFriends = () => {
+        const utils = initUtils();
+        utils.openTelegramLink(
+            `https://t.me/share/url?url=${BOT_URL}?startapp=${inviteCode}`
+        )
+    }
 
     return (
         <Modal
@@ -28,7 +40,7 @@ export default function DrawsModal({
                 <div className={styles.title}>Out of Draws!</div>
                 <div className={styles.desc}>The next draw is available in xx:xx:xx.</div>
                 <div className={styles.desc}>Invite your friends to earn bonus draws!</div>
-                <div className={styles.btn}>
+                <div className={styles.btn} onClick={handleClickInvitationFriends}>
                     <span>Invite Friends</span>
                 </div>
             </div>

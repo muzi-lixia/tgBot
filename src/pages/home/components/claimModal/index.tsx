@@ -1,6 +1,7 @@
 import styles from './index.module.scss'
+import { BOT_URL } from '@/const/constants'
 import { Modal } from 'antd'
-
+import { initUtils } from '@telegram-apps/sdk'
 
 export default function ClaimModal({
     claimTpusd,
@@ -11,6 +12,14 @@ export default function ClaimModal({
     openModal: boolean,
     setOpenModal: () => void
 }) {
+
+    // 分享
+    const handleClickShare = () => {
+        const utils = initUtils();
+        utils.openTelegramLink(
+            `https://t.me/share/url?url=${BOT_URL}`
+        )
+    }
 
     return (
         <Modal
@@ -30,7 +39,7 @@ export default function ClaimModal({
                     <div>You have earned { claimTpusd } $TPUSD!</div>
                 </div>
             </div>
-            <div className={styles.shareBtn}>
+            <div className={styles.shareBtn} onClick={handleClickShare}>
                 <span>Share it!</span>
             </div>
             <div className={styles.closeBtn} onClick={() => setOpenModal()}>
