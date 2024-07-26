@@ -10,7 +10,7 @@ export default defineConfig({
         outDir: './docs',
         chunkSizeWarningLimit: 1600
     },
-    base: '/bot/',
+    base: './',
     resolve: {
         alias: {
             '@': path.resolve(__dirname, './src')

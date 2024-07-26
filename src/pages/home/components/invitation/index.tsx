@@ -1,15 +1,26 @@
 import styles from './index.module.scss'
+import { BOT_URL } from '@/const/constants'
 import { Drawer } from 'antd'
+import { initUtils } from '@telegram-apps/sdk'
 
 export default function Rules({
+    inviteCode,
     invitationNum,
     openDrawer,
     setOpenDrawer
 } : {
+    inviteCode: string
     invitationNum: number
     openDrawer: boolean,
     setOpenDrawer: () => void
 }) {
+
+    const handleClickInvitationFriends = () => {
+        const utils = initUtils();
+        utils.openTelegramLink(
+            `https://t.me/share/url?url=${BOT_URL}?startapp=${inviteCode}`
+        )
+    }
 
     return (
         <Drawer
@@ -32,9 +43,9 @@ export default function Rules({
                 <div className={styles.inviteNum}>
                     You have invited { 10 - invitationNum } friends,
                     {
-                        invitationNum < 2 ? `and earned ${invitationNum} bonus` :
-                            invitationNum < 10 ? `and earned ${invitationNum} bonuses` :
-                            `maximum 10 bonuses`
+                        10 - invitationNum < 2 ? `and earned ${ 10 - invitationNum } bonus` :
+                            10 - invitationNum < 10 ? `and earned ${ 10 - invitationNum } bonuses` :
+                            `maximum ${ 10 - invitationNum } bonuses`
                     }
                 </div>
                 <div className={styles.inviteStep}>
@@ -48,7 +59,7 @@ export default function Rules({
                         <span>Earn the Extra Bonus</span>
                     </div>
                 </div>
-                <div className={styles.inviteBtn}>
+                <div className={styles.inviteBtn} onClick={handleClickInvitationFriends}>
                     <span>Invite Friends</span>
                 </div>
             </div>

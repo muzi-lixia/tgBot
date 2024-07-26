@@ -26,7 +26,7 @@ export default function SoonModal({
             <div className={styles.shadow}></div>
             <div className={styles.context}>
                 <div className={styles.title}>Coming soon</div>
-                <div className={styles.btn}>
+                <div className={styles.btn} onClick={() => setOpenModal()}>
                     <span>Go it!</span>
                 </div>
             </div>

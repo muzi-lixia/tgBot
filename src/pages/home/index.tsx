@@ -32,6 +32,7 @@ export default function Home({
         inviteCount: number
         lastSyncTime: number
         tpusd: string
+        syncInviteCount: number
     }>()
 
     // 金币动画
@@ -41,6 +42,11 @@ export default function Home({
     const [claimTpusd, setClaimTpusd] = useState('')
     // click claim btn
     const handleClickClaim = async () => {
+        // const time1 = 1000 * 60 * 60 * 6
+        // const lastSyncTime = (userDetail?.lastSyncTime && userDetail?.lastSyncTime * 1000) || 0
+        // const currentTime = new Date().getTime()
+
+        if (userDetail?.lastSyncTime && userDetail?.lastSyncTime * 1000 )
         if (animation) {
             // 防止重复点击
             return
@@ -137,12 +143,9 @@ export default function Home({
                     <div className={styles.walletBtn} onClick={() => setOpenSoonModal(true)}>Wallet</div>
                 </div>
                 <div className={styles.placeholder}>
-                    {
-                        userDetail?.inviteCount ?
-                            <div className={styles.claimNum}>
-                                <span>{ userDetail?.inviteCount }</span>
-                            </div> : null
-                    }
+                    <div className={styles.claimNum}>
+                        <span>{ userDetail?.syncInviteCount }</span>
+                    </div>
                 </div>
             </div>
 
@@ -178,7 +181,7 @@ export default function Home({
             <Rules openDrawer={openRules} setOpenDrawer={() => setOpenRules(false)} />
             <Reward rewardList={rewardList} rewardLoading={rewardLoading} openDrawer={openReward} setOpenDrawer={() => setOpenReward(false)} />
             <Ranking rankingList={rankingList} rankingLoading={rankingLoading} openDrawer={openRank} setOpenDrawer={() => setOpenRank(false)} />
-            <Invitation invitationNum={(userDetail?.inviteCount || 1) as number} openDrawer={openInvitation} setOpenDrawer={handleCloseInvitationModal} />
+            <Invitation inviteCode={userDetail?.inviteCode || ''} invitationNum={(userDetail?.inviteCount || 1) as number} openDrawer={openInvitation} setOpenDrawer={handleCloseInvitationModal} />
 
             {/* claim modal */}
             <ClaimModal claimTpusd={claimTpusd} openModal={openClaimModal} setOpenModal={handleCloseClaimModal} />

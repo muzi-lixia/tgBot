@@ -17,8 +17,9 @@ function App() {
             if (result.data.jwtToken) {
                 setJwt(result.data.jwtToken)
                 sessionStorage.setItem('jwt', result.data.jwtToken)
-                const user = await API_METHOD.postBotRegister('')
-                console.log(user);
+                const info = WebApp.initDataUnsafe
+                console.log(info);
+                await API_METHOD.postBotRegister(info.start_param || '')
             }
         } catch (error) {
             console.log(error)
