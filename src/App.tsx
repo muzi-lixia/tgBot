@@ -2,14 +2,11 @@ import './App.css'
 import { useEffect, useState } from 'react'
 import WebApp from '@twa-dev/sdk'
 import eruda from 'eruda'
-import { initSwipeBehavior } from '@telegram-apps/sdk'
 import Home from './pages/home'
 import * as API_METHOD from '@/context/index'
 
 function App() {
     eruda.init()
-    // const [swipeBehavior] = initSwipeBehavior()
-    // swipeBehavior.enableVerticalSwipe()
 
     const [jwt, setJwt] = useState('')
 
