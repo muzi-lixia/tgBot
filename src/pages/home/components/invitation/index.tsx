@@ -1,7 +1,8 @@
 import styles from './index.module.scss'
 import { BOT_URL } from '@/const/constants'
 import { Drawer } from 'antd'
-import { initUtils } from '@telegram-apps/sdk'
+// import { initUtils } from '@telegram-apps/sdk'
+import WebApp from '@twa-dev/sdk'
 
 export default function Rules({
     inviteCode,
@@ -18,8 +19,8 @@ export default function Rules({
     // 邀请好友
     const handleClickInvitationFriends = () => {
         try {
-            const utils = initUtils();
-            utils.openTelegramLink(
+            // const utils = initUtils();
+            WebApp.openTelegramLink(
                 `https://t.me/share/url?url=${BOT_URL}?startapp=${inviteCode}`
             )
         } catch (error) {}
