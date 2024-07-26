@@ -22,7 +22,7 @@ export default function Rules({
         //     `https://t.me/share/url?url=${BOT_URL}?startapp=${inviteCode}`
         // )
         utils.shareURL(
-            `https://t.me/share/url?url=${BOT_URL}`,
+            `${BOT_URL}`,
             '这里是测试文案内容'+inviteCode
         )
     }
