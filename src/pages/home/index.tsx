@@ -7,6 +7,7 @@ import Reward from './components/reward'
 import ClaimModal from './components/claimModal'
 import DrawsModal from './components/drawsModal'
 import SoonModal from './components/soonModal'
+import Guide from './components/guide'
 import * as API_METHOD from '@/context/index'
 
 export default function Home({
@@ -15,6 +16,9 @@ export default function Home({
     jwt: string
 }) {
 
+    const bool = localStorage.getItem('isReadGuidePage')
+    // 是否阅读了引导页
+    const [isReadGuidePage, setIsReadGuidePage] = useState(bool || false)
     const [openRules, setOpenRules] = useState(false)
     const [openReward, setOpenReward] = useState(false)
     const [openRank, setOpenRank] = useState(false)
@@ -224,6 +228,9 @@ export default function Home({
 
             {/* 底部按钮 */}
             <div className={styles.claimBtn} onClick={handleClickClaim}></div>
+            {
+                !isReadGuidePage ? <Guide num={userDetail?.syncInviteCount as number} setIsReadGuidePage={() => setIsReadGuidePage(true)} /> : null
+            }
 
             {/* 弹框 */}
             <Rules openDrawer={openRules} setOpenDrawer={() => setOpenRules(false)} />
