@@ -1,7 +1,7 @@
 import styles from './index.module.scss'
 import { BOT_URL, SHARE_TEXT } from '@/const/constants'
 import { Modal } from 'antd'
-import { initUtils } from '@telegram-apps/sdk'
+import WebApp from '@twa-dev/sdk'
 
 export default function ClaimModal({
     claimTpusd,
@@ -16,10 +16,8 @@ export default function ClaimModal({
     // 分享
     const handleClickShare = () => {
         try {
-            const utils = initUtils();
-            utils.shareURL(
-                `${BOT_URL}`,
-                SHARE_TEXT
+            WebApp.openTelegramLink(
+                `https://t.me/share/url?text=${SHARE_TEXT}&url=${BOT_URL}`
             )
         } catch (error) {}
     }

@@ -1,5 +1,5 @@
 import styles from './index.module.scss'
-import { BOT_URL } from '@/const/constants'
+import { BOT_URL, SHARE_TEXT } from '@/const/constants'
 import { Drawer } from 'antd'
 import WebApp from '@twa-dev/sdk'
 
@@ -19,7 +19,7 @@ export default function Rules({
     const handleClickInvitationFriends = () => {
         try {
             WebApp.openTelegramLink(
-                `https://t.me/share/url?text=${'12141412412421423'}&url=${BOT_URL}?startapp=${inviteCode}`
+                `https://t.me/share/url?text=${SHARE_TEXT}&url=${BOT_URL}?startapp=${inviteCode}`
             )
         } catch (error) {}
     }

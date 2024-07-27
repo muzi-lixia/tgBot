@@ -1,7 +1,7 @@
 import styles from './index.module.scss'
-import { BOT_URL } from '@/const/constants'
+import { BOT_URL, SHARE_TEXT } from '@/const/constants'
 import { Modal } from 'antd'
-import { initUtils } from '@telegram-apps/sdk'
+import WebApp from '@twa-dev/sdk'
 
 export default function DrawsModal({
     countDate,
@@ -22,9 +22,8 @@ export default function DrawsModal({
     // 邀请好友
     const handleClickInvitationFriends = () => {
         try {
-            const utils = initUtils();
-            utils.openTelegramLink(
-                `https://t.me/share/url?url=${BOT_URL}?startapp=${inviteCode}`
+            WebApp.openTelegramLink(
+                `https://t.me/share/url?text=${SHARE_TEXT}&url=${BOT_URL}?startapp=${inviteCode}`
             )
         } catch (error) {}
     }
