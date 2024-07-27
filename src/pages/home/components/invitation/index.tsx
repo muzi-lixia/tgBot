@@ -19,9 +19,10 @@ export default function Rules({
     // 邀请好友
     const handleClickInvitationFriends = () => {
         try {
+            console.log(inviteCode)
             // const utils = initUtils();
             WebApp.openTelegramLink(
-                `https://t.me/share/url?url=${BOT_URL}?startapp=${inviteCode}`
+                `https://t.me/share/url?url=${BOT_URL}?startapp=${inviteCode || 'kvsmdfvkergsergbrs'}`
             )
         } catch (error) {}
     }
