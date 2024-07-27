@@ -16,6 +16,7 @@ function App() {
         try {
             sessionStorage.removeItem('jwt')
             localStorage.removeItem('jwtTokenTime')
+            setJwt('')
             const result = await API_METHOD.getJwtToken(data)
             if (result.data.jwtToken) {
                 setJwt(result.data.jwtToken)
@@ -36,9 +37,9 @@ function App() {
         const time = localStorage.getItem('jwtTokenTime') ? JSON.parse(localStorage.getItem('jwtTokenTime') as string) : 0
         // let initData = `query_id=AAF4kt0tAwAAAHiS3S1YU-69&user=%7B%22id%22%3A7211946616%2C%22first_name%22%3A%22muzi%22%2C%22last_name%22%3A%22lixia%22%2C%22username%22%3A%22muzi_lixia%22%2C%22language_code%22%3A%22zh-hans%22%2C%22allows_write_to_pm%22%3Atrue%7D&auth_date=1721973469&hash=e600c5d0dacfc741c243d666fa5f22aff0ba795f778eb3846b5ca568c46ff422`
         if (initData) {
-            if (!time) {
+            if (!sessionStorage.getItem('jwt') || !time) {
                 getJwtToken(initData)
-            } else if (new Date().getTime() - time < 60000) {
+            } else if (time + 1000 * 60 * 60 * 3 < new Date().getTime()) {
                 getJwtToken(initData)
             }
         }

@@ -62,13 +62,14 @@ export default function Home({
         try {
             const result = await API_METHOD.postUserLuckAward()
             setClaimTpusd(result.data.ClaimTpusd)
-            getUserDetail()
             if ((new Date().getTime() - time) < 3000) {
                 setTimeout(() => {
+                    getUserDetail()
                     setOpenClaimModal(true)
                     setAnimation(false)
                 }, 3000)
             } else {
+                getUserDetail()
                 setOpenClaimModal(true)
                 setAnimation(false)
             }
@@ -131,6 +132,9 @@ export default function Home({
         try {
             const detail = await API_METHOD.getUserDetail()
             setUserDetail(detail.data || {})
+            if (!detail.data?.syncInviteCount) {
+                countDown(detail.data?.nextSyncTime)
+            }
         } catch (error) {}
     }
     useEffect(() => {
@@ -160,20 +164,20 @@ export default function Home({
                     second: second.toString().padStart(2, '0'),
                 })
             } else {
+                getUserDetail()
                 setCountDate({
                     hour: '00',
                     minute: '00',
                     second: '00'
                 })
                 clearInterval(intervalId)
-                getUserDetail()
             }
         }, 1000)
     }
 
     useEffect(() => {
         if (userDetail?.nextSyncTime) {
-            countDown(userDetail.nextSyncTime)
+            // countDown(userDetail.nextSyncTime)
         }
     }, [userDetail?.nextSyncTime])
 
