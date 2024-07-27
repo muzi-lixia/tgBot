@@ -246,6 +246,10 @@
             background-image: url('https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/claim-2.png');
         }
     }
+
+    .claimDisabled {
+        pointer-events: none;
+    }
 }
 
 @keyframes anim {

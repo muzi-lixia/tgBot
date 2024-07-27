@@ -33,9 +33,8 @@ function App() {
     }
 
     useEffect(() => {
-        // getJwtToken(`query_id=AAF4kt0tAwAAAHiS3S1YU-69&user=%7B%22id%22%3A7211946616%2C%22first_name%22%3A%22muzi%22%2C%22last_name%22%3A%22lixia%22%2C%22username%22%3A%22muzi_lixia%22%2C%22language_code%22%3A%22zh-hans%22%2C%22allows_write_to_pm%22%3Atrue%7D&auth_date=1721973469&hash=e600c5d0dacfc741c243d666fa5f22aff0ba795f778eb3846b5ca568c46ff422`)
         const time = localStorage.getItem('jwtTokenTime') ? JSON.parse(localStorage.getItem('jwtTokenTime') as string) : 0
-        // let initData = `query_id=AAF4kt0tAwAAAHiS3S1YU-69&user=%7B%22id%22%3A7211946616%2C%22first_name%22%3A%22muzi%22%2C%22last_name%22%3A%22lixia%22%2C%22username%22%3A%22muzi_lixia%22%2C%22language_code%22%3A%22zh-hans%22%2C%22allows_write_to_pm%22%3Atrue%7D&auth_date=1721973469&hash=e600c5d0dacfc741c243d666fa5f22aff0ba795f778eb3846b5ca568c46ff422`
+        // let initData = `query_id=AAF4kt0tAwAAAHiS3S2pvoMT&user=%7B%22id%22%3A7211946616%2C%22first_name%22%3A%22muzi%22%2C%22last_name%22%3A%22lixia%22%2C%22username%22%3A%22muzi_lixia%22%2C%22language_code%22%3A%22zh-hans%22%2C%22allows_write_to_pm%22%3Atrue%7D&auth_date=1722086690&hash=0a7a4570851849e5b96f8e5b39b6d988fee55985d479d1db305fe11c81acbc3a`
         if (initData) {
             if (!sessionStorage.getItem('jwt') || !time) {
                 getJwtToken(initData)

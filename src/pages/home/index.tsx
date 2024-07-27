@@ -47,19 +47,19 @@ export default function Home({
     const [claimTpusd, setClaimTpusd] = useState('')
     // click claim btn
     const handleClickClaim = async () => {
-        if (!userDetail?.syncInviteCount) {
-            if (userDetail?.nextSyncTime && userDetail?.nextSyncTime * 1000 > new Date().getTime()) {
-                setOpenDrawsModal(true)
+        try {
+            if (animation) {
+                // 防止重复点击
                 return
             }
-        }
-        if (animation) {
-            // 防止重复点击
-            return
-        }
-        setAnimation(true)
-        const time = new Date().getTime()
-        try {
+            if (!userDetail?.syncInviteCount) {
+                if (userDetail?.nextSyncTime && userDetail?.nextSyncTime * 1000 > new Date().getTime()) {
+                    setOpenDrawsModal(true)
+                    return
+                }
+            }
+            setAnimation(true)
+            const time = new Date().getTime()
             const result = await API_METHOD.postUserLuckAward()
             setClaimTpusd(result.data.ClaimTpusd)
             if ((new Date().getTime() - time) < 3000) {
@@ -154,24 +154,24 @@ export default function Home({
         const intervalId = setInterval(async () => {
             const currentTimes = new Date().getTime();
             let remaining = (end * 1000) - currentTimes; // 计算倒计时剩余的秒数
-            if (remaining > 0) {
-                let hour = Math.floor((remaining / (1000 * 60 * 60)) % 24)
-                let minute = Math.floor((remaining / (1000 * 60)) % 60);
-                let second = Math.floor((remaining / 1000) % 60);
-                setCountDate({
-                    hour: hour.toString().padStart(2, '0'),
-                    minute: minute.toString().padStart(2, '0'),
-                    second: second.toString().padStart(2, '0'),
-                })
-            } else {
+            let hour = Math.floor((remaining / (1000 * 60 * 60)) % 24)
+            let minute = Math.floor((remaining / (1000 * 60)) % 60);
+            let second = Math.floor((remaining / 1000) % 60);
+            if (remaining <= 0) {
+                clearInterval(intervalId)
                 getUserDetail()
                 setCountDate({
                     hour: '00',
                     minute: '00',
                     second: '00'
                 })
-                clearInterval(intervalId)
+                return
             }
+            setCountDate({
+                hour: hour.toString().padStart(2, '0'),
+                minute: minute.toString().padStart(2, '0'),
+                second: second.toString().padStart(2, '0'),
+            })
         }, 1000)
     }
 
@@ -231,7 +231,7 @@ export default function Home({
             </div>
 
             {/* 底部按钮 */}
-            <div className={styles.claimBtn} onClick={handleClickClaim}></div>
+            <div className={`${styles.claimBtn} ${animation ? styles.claimDisabled : ''}`} onClick={handleClickClaim}></div>
             {
                 // !isReadGuidePage ? <Guide num={userDetail?.syncInviteCount as number} setIsReadGuidePage={() => setIsReadGuidePage(true)} /> : null
             }
