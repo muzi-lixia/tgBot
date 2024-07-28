@@ -5,96 +5,9 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TerpollyBot</title>
-
-    <style>
-        body {
-            margin: 0;
-        }
-
-        .loading {
-            position: relative;
-            width: 100%;
-            height: 100vh;
-            background: url('/images/loading-bg.png') no-repeat;
-            background-size: cover;
-
-            .topText {
-                position: absolute;
-                top: 108px;
-                left: 50%;
-                transform: translateX(-50%);
-            }
-
-            .progress {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100%;
-
-                .box {
-                    position: relative;
-                    margin-top: 200px;
-                    z-index: 2;
-
-                    .progressbarContainer {
-                        position: absolute;
-                        top: 14px;
-                        left: 10px;
-                        width: 295px;
-                    }
-
-                    .progressbar {
-                        height: 21px;
-                        background: linear-gradient(180deg, #F1F77C 0%, #91C133 100%);
-                        border-radius: 9px;
-                        transition: width 0.2s ease-in-out;
-                    }
-                }
-            }
-
-            .bottomText {
-                position: absolute;
-                bottom: 80px;
-                left: 50%;
-                transform: translateX(-50%);
-                z-index: 1;
-            }
-
-            .shadow {
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                width: 100%;
-                height: 400px;
-                background: linear-gradient( 180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.71) 66%, #000000 100%);
-                z-index: 0;
-            }
-        }
-    </style>
   </head>
   <body>
-    <div id="root">
-        <div class="loading">
-            <div class="topText">
-                <img src="/images/loading-page-text-1.png" width='366px' height='145px' alt="" />
-            </div>
-            <div class="progress">
-                <div class="box">
-                    <img src="/images/progress-bg.png" width="315px" height="47px" alt="" />
-                    <div class="progressbarContainer">
-                        <div class="progressbar"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="bottomText">
-                <img src="/images/loading-page-text-2.png" width="336px" height="46px" alt="" />
-            </div>
-            <div class="shadow"></div>
-        </div>
-    </div>
+    <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <script>
-        
-    </script>
   </body>
 </html>

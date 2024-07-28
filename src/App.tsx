@@ -1,8 +1,8 @@
 import './App.css'
-import { useEffect, useState, lazy, /* Suspense */ } from 'react'
+import { useEffect, useState, lazy, useTransition } from 'react'
 import WebApp from '@twa-dev/sdk'
 import eruda from 'eruda'
-// import LoadingPage from './components'
+import LoadingPage from './components'
 import * as API_METHOD from '@/context/index'
 
 const HomePage = lazy(() => import('./pages/home'))
@@ -44,30 +44,19 @@ function App() {
                 getJwtToken(initData)
             }
         }
+        startTransition(() => {
+            setIsLoading(false)
+        })
     }, [])
-
-    // const [progress, setProgress] = useState(0)
-    // useEffect(() => {
-    //     window.addEventListener('load', handleLoad)
-    //     window.addEventListener('progress', handleProgress)
-    //     return () => {
-    //         window.removeEventListener('load', handleLoad)
-    //         window.removeEventListener('progress', handleProgress)
-    //     }
-    // }, [])
-    // const handleProgress = (event: any) => {
-    //     if (event.lengthComputable) {
-    //         setProgress((event.loaded / event.total) * 100)
-    //     }
-    // }
-    // const handleLoad = () => {
-    //     setProgress(100);
-    // }
+    const [isLoading, setIsLoading] = useState(true)
+    const [isPending, startTransition] = useTransition()
 
     return (
-        // <Suspense fallback={<LoadingPage progress={progress} />}>
-            <HomePage jwt={jwt} />
-        // </Suspense>
+        <>
+            {
+                isLoading || isPending ? <LoadingPage /> : <HomePage jwt={jwt} />
+            }
+        </>
     )
 }
 
