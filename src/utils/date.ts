@@ -1,4 +1,4 @@
-import moment from "moment"
+import moment from "moment-timezone"
 /**
  * 时间转换
  * @param time unix时间戳（秒）unit64格式
@@ -8,5 +8,5 @@ export const getTime = (time: number, splitter = '-'): string => {
     if (!time) {
         return '-'
     }
-    return moment.unix(time).utc(true).format(`YYYY${splitter}MM${splitter}DD hh:mm:ss`)
+    return moment(time * 1000).tz(moment.tz.guess()).format(`YYYY${splitter}MM${splitter}DD HH:mm:ss`)
 }
