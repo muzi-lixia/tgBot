@@ -1,0 +1,59 @@
+.loading {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: url('/images/loading-bg.png') no-repeat;
+    background-size: cover;
+
+    .topText {
+        position: absolute;
+        top: 108px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .progress {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+
+        .box {
+            position: relative;
+            margin-top: 200px;
+            z-index: 2;
+
+            .progressbarContainer {
+                position: absolute;
+                top: 14px;
+                left: 10px;
+                width: 295px;
+            }
+
+            .progressbar {
+                height: 21px;
+                background: linear-gradient(180deg, #F1F77C 0%, #91C133 100%);
+                border-radius: 9px;
+                transition: width 0.2s ease-in-out;
+            }
+        }
+    }
+
+    .bottomText {
+        position: absolute;
+        bottom: 80px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1;
+    }
+
+    .shadow {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 400px;
+        background: linear-gradient( 180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.71) 66%, #000000 100%);
+        z-index: 0;
+    }
+}

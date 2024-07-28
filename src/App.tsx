@@ -1,9 +1,11 @@
 import './App.css'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, lazy, Suspense } from 'react'
 import WebApp from '@twa-dev/sdk'
 import eruda from 'eruda'
-import Home from './pages/home'
+import LoadingPage from './components'
 import * as API_METHOD from '@/context/index'
+
+const HomePage = lazy(() => import('./pages/home'))
 
 function App() {
     eruda.init()
@@ -44,8 +46,31 @@ function App() {
         }
     }, [])
 
+    const [progress, setProgress] = useState(0)
+
+    useEffect(() => {
+        window.addEventListener('load', handleLoad)
+        window.addEventListener('progress', handleProgress)
+        return () => {
+            window.removeEventListener('load', handleLoad)
+            window.removeEventListener('progress', handleProgress)
+        }
+    }, [])
+
+    const handleProgress = (event: any) => {
+        if (event.lengthComputable) {
+            setProgress((event.loaded / event.total) * 100)
+        }
+    }
+
+    const handleLoad = () => {
+        setProgress(100);
+    }
+
     return (
-        <Home jwt={jwt} />
+        <Suspense fallback={<LoadingPage progress={progress} />}>
+            <HomePage jwt={jwt} />
+        </Suspense>
     )
 }
 
