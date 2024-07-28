@@ -58,12 +58,15 @@ function App() {
     }, [])
 
     const handleProgress = (event: any) => {
+        console.log(`Received ${event.loaded} of ${event.total} bytes`)
         if (event.lengthComputable) {
             setProgress((event.loaded / event.total) * 100)
         }
     }
 
     const handleLoad = () => {
+        console.log(progress);
+        
         setProgress(100);
     }
 
