@@ -2,13 +2,22 @@
     position: relative;
     width: 100%;
     height: 100vh;
-    background: url('https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/bg.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: top center;
     z-index: 1;
     overflow: hidden;
+
+    .bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/bg.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: top center;
+        z-index: -1;
+    }
 
     .allLamplight {
         position: absolute;
@@ -238,12 +247,26 @@
         width: 175px;
         height: 65px;
         transform: translateX(-50%);
-        background-image: url('https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/claim-1.png');
-        background-size: cover;
-        transition: background-image 0.3s;
+
+        .claimBg1 {
+            opacity: 1;
+        }
+
+        .claimBg2 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+        }
 
         &:active {
-            background-image: url('https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/claim-2.png');
+            .claimBg1 {
+                opacity: 0;
+            }
+    
+            .claimBg2 {
+                opacity: 1;
+            }
         }
     }
 

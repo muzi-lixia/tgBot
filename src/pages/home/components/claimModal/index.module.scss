@@ -10,6 +10,24 @@
         line-height: 28px;
     }
 
+    .loading {
+        margin-top: -60px;
+        text-align: center;
+
+        img {
+            animation: loadingAnima 1.5s linear infinite;
+        }
+
+        .loadingText {
+            margin-top: 14px;
+            font-family: PingFangSC, PingFang SC;
+            font-weight: 600;
+            font-size: 20px;
+            color: #FFDF5B;
+            line-height: 28px;
+        }
+    }
+
     .shareBtn {
         position: relative;
         display: flex;
@@ -76,4 +94,14 @@
 
 .mask {
     background-color: rgba(0, 0, 0, 0.7)!important;
+}
+
+@keyframes loadingAnima {
+    0% {
+        transform: rotate(0);
+    }
+    
+    100% {
+        transform: rotate(360deg);
+    }
 }

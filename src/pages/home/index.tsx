@@ -9,6 +9,7 @@ import DrawsModal from './components/drawsModal'
 import SoonModal from './components/soonModal'
 // import Guide from './components/guide'
 import * as API_METHOD from '@/context/index'
+import { message } from 'antd'
 
 export default function Home({
     jwt
@@ -19,6 +20,7 @@ export default function Home({
     // const bool = localStorage.getItem('isReadGuidePage')
     // 是否阅读了引导页
     // const [isReadGuidePage, setIsReadGuidePage] = useState(bool || false)
+    const [messageApi, contextHolder] = message.useMessage()
     const [openRules, setOpenRules] = useState(false)
     const [openReward, setOpenReward] = useState(false)
     const [openRank, setOpenRank] = useState(false)
@@ -47,36 +49,42 @@ export default function Home({
     const [claimTpusd, setClaimTpusd] = useState('')
     // click claim btn
     const handleClickClaim = async () => {
-        try {
-            if (animation) {
-                // 防止重复点击
+        if (animation) {
+            // 防止重复点击
+            return
+        }
+        setClaimTpusd('')
+        let bool = false
+        if (!userDetail?.syncInviteCount) {
+            if (userDetail?.nextSyncTime && userDetail?.nextSyncTime * 1000 > new Date().getTime()) {
+                setOpenDrawsModal(true)
                 return
             }
-            if (!userDetail?.syncInviteCount) {
-                if (userDetail?.nextSyncTime && userDetail?.nextSyncTime * 1000 > new Date().getTime()) {
-                    setOpenDrawsModal(true)
-                    return
-                }
+        }
+        setAnimation(true)
+        bool = true
+        const getCliamTpusd = async () => {
+            try {
+                const result = await API_METHOD.postUserLuckAward()
+                setClaimTpusd(result.data.ClaimTpusd)
+            } catch (error) {
+                setOpenClaimModal(false)
+                setAnimation(false)
+                bool = false
+                messageApi.open({
+                    type: 'warning',
+                    content: 'Network error, please try again later!'
+                })
             }
-            setAnimation(true)
-            const time = new Date().getTime()
-            const result = await API_METHOD.postUserLuckAward()
-            setClaimTpusd(result.data.ClaimTpusd)
-            if ((new Date().getTime() - time) < 3000) {
-                setTimeout(() => {
-                    getUserDetail()
-                    setOpenClaimModal(true)
-                    setAnimation(false)
-                }, 3000)
-            } else {
+        }
+        getCliamTpusd()
+        setTimeout(() => {
+            if (bool) {
                 getUserDetail()
                 setOpenClaimModal(true)
                 setAnimation(false)
             }
-        } catch (error) {
-            setOpenClaimModal(false)
-            setAnimation(false)
-        }
+        }, 4000)
     }
 
     // close claim modal
@@ -183,6 +191,8 @@ export default function Home({
 
     return (
         <div className={styles.home}>
+            {contextHolder}
+            <div className={styles.bg}></div>
             {/* 所有光源 */}
             <div className={styles.allLamplight}></div>
             <div className={styles.header}>
@@ -231,7 +241,10 @@ export default function Home({
             </div>
 
             {/* 底部按钮 */}
-            <div className={`${styles.claimBtn} ${animation ? styles.claimDisabled : ''}`} onClick={handleClickClaim}></div>
+            <div className={`${styles.claimBtn} ${animation ? styles.claimDisabled : ''}`} onClick={handleClickClaim}>
+                <img className={styles.claimBg1} src="https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/claim-1.png" width={175} height={65} alt="" />
+                <img className={styles.claimBg2} src="https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/claim-2.png" width={175} height={65} alt="" />
+            </div>
             {
                 // !isReadGuidePage ? <Guide num={userDetail?.syncInviteCount as number} setIsReadGuidePage={() => setIsReadGuidePage(true)} /> : null
             }
