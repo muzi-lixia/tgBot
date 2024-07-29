@@ -6,8 +6,10 @@ import WebApp from '@twa-dev/sdk'
 
 WebApp.ready()
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+setTimeout(() => {
+    ReactDOM.createRoot(document.getElementById('root')!).render(
+        <React.StrictMode>
+          <App />
+        </React.StrictMode>,
+    )
+}, 3000)
