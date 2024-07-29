@@ -2,7 +2,7 @@ import './App.css'
 import { useEffect, useState } from 'react'
 import WebApp from '@twa-dev/sdk'
 import eruda from 'eruda'
-// import LoadingPage from './components'
+import LoadingPage from './components'
 import HomePage from './pages/home'
 import * as API_METHOD from '@/context/index'
 
@@ -33,6 +33,7 @@ function App() {
         }
     }
 
+    const [loading, setLoading] = useState(true)
     useEffect(() => {
         try {
             if (WebApp.initDataUnsafe) {
@@ -50,10 +51,18 @@ function App() {
                 getJwtToken(initData)
             }
         }
+        setTimeout(() => {
+            setLoading(false)
+        }, 3000)
     }, [])
 
     return (
-        <HomePage jwt={jwt} />
+        <div className='app'>
+            <div className='loadingPage' style={{ display: loading ? 'block' : 'none' }}>
+                <LoadingPage />
+            </div>
+            <HomePage jwt={jwt} />
+        </div>
     )
 }
 
