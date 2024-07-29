@@ -47,6 +47,13 @@ function App() {
         startTransition(() => {
             setIsLoading(false)
         })
+        try {
+            if ((window as any).Telegram.WebApp.init()) {
+                WebApp.expand()
+            }
+        } catch (error) {
+            console.log(error)
+        }
     }, [])
     const [isLoading, setIsLoading] = useState(true)
     const [isPending, startTransition] = useTransition()
