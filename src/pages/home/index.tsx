@@ -211,7 +211,6 @@ export default function Home({
     return (
         <div className={styles.home}>
             {contextHolder}
-            <div className={styles.bg}></div>
             {/* 所有光源 */}
             <div className={styles.allLamplight}></div>
             <div className={styles.header}>
