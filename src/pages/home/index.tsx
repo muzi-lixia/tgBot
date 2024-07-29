@@ -10,7 +10,20 @@ import SoonModal from './components/soonModal'
 // import Guide from './components/guide'
 import * as API_METHOD from '@/context/index'
 import { message } from 'antd'
+import useImageLoader from '@/hooks'
+import LoadingPage from '@/components'
 
+const imageUrls = [
+    "https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/bg.png",
+    "https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/bg2.png",
+    "https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/bg1.png",
+    "https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/allLamplight.png",
+    "https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/balanceImg.png",
+    "https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/claim.png",
+    "https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/btn-1.png",
+    "https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/goldcoin.png",
+    "https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/claim-1.png"
+]
 export default function Home({
     jwt
 } : {
@@ -189,6 +202,12 @@ export default function Home({
         }
     }, [userDetail?.nextSyncTime])
 
+    const loading = useImageLoader(imageUrls, 3000)
+    
+    if (!loading && !userDetail) {
+        return <LoadingPage />
+    }
+    
     return (
         <div className={styles.home}>
             {contextHolder}
