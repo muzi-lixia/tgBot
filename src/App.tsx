@@ -48,7 +48,7 @@ function App() {
             setIsLoading(false)
         })
         try {
-            if ((window as any).Telegram.WebApp.init()) {
+            if (WebApp.initDataUnsafe) {
                 WebApp.expand()
             }
         } catch (error) {
