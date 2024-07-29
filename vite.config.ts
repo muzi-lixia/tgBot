@@ -8,7 +8,8 @@ export default defineConfig({
     plugins: [react(), basicSsl()],
     build: {
         outDir: './docs',
-        chunkSizeWarningLimit: 1600
+        chunkSizeWarningLimit: 1600,
+        assetsInlineLimit: 8192
     },
     base: './',
     // base: '/terpollyGameTestBot/',

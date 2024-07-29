@@ -10,20 +10,8 @@ import SoonModal from './components/soonModal'
 // import Guide from './components/guide'
 import * as API_METHOD from '@/context/index'
 import { message } from 'antd'
-import useImageLoader from '@/hooks'
-import LoadingPage from '@/components'
+import rulesImg from '@/assets/images/rules.png'
 
-const imageUrls = [
-    "https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/bg.png",
-    "https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/bg2.png",
-    "https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/bg1.png",
-    "https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/allLamplight.png",
-    "https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/balanceImg.png",
-    "https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/claim.png",
-    "https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/btn-1.png",
-    "https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/goldcoin.png",
-    "https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/claim-1.png"
-]
 export default function Home({
     jwt
 } : {
@@ -201,12 +189,6 @@ export default function Home({
             // countDown(userDetail.nextSyncTime)
         }
     }, [userDetail?.nextSyncTime])
-
-    const loading = useImageLoader(imageUrls, 3000)
-    
-    if (!loading && !userDetail) {
-        return <LoadingPage />
-    }
     
     return (
         <div className={styles.home}>
@@ -236,7 +218,7 @@ export default function Home({
             {/* 左侧按钮 */}
             <div className={styles.btnGroup}>
                 <div className={styles.rules} onClick={() => setOpenRules(true)}>
-                    <img src="https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/rules.png" width={44} height={44} alt="" />
+                    <img src={rulesImg} width={44} height={44} alt="" />
                     <span>Rules</span>
                 </div>
                 <div className={styles.record} onClick={handleClickRewardModal}>

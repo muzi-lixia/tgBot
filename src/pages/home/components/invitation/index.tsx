@@ -2,6 +2,7 @@ import styles from './index.module.scss'
 import { BOT_URL, SHARE_TEXT } from '@/const/constants'
 import { Drawer } from 'antd'
 import WebApp from '@twa-dev/sdk'
+import closeImg from '@/assets/images/close.png'
 
 export default function Rules({
     inviteCode,
@@ -38,7 +39,7 @@ export default function Rules({
             <div className={styles.customHeader}>
                 <div className={styles.title}>Invitation</div>
                 <div onClick={() => setOpenDrawer()}>
-                    <img src={'https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/close.png'} width={30} height={30} alt="" />
+                    <img src={closeImg} width={30} height={30} alt="" />
                 </div>
             </div>
             <div className={styles.context}>

@@ -2,9 +2,27 @@ import './App.css'
 import { useEffect, useState } from 'react'
 import WebApp from '@twa-dev/sdk'
 import eruda from 'eruda'
-// import LoadingPage from './components'
+import LoadingPage from './components'
 import HomePage from './pages/home'
 import * as API_METHOD from '@/context/index'
+import useImageLoader from '@/hooks'
+
+const imageUrls = [
+    "https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/bg.png",
+    "https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/bg2.png",
+    "https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/bg1.png",
+    "https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/allLamplight.png",
+    "https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/balanceImg.png",
+    "https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/claim.png",
+    "https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/btn-1.png",
+    "https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/goldcoin.png",
+    "https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/claim-1.png",
+    "https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/rules.png",
+    "https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/record.png",
+    "https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/rank.png",
+    "https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/invitation.png",
+    "https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/claim-2.png"
+]
 
 function App() {
     eruda.init()
@@ -51,6 +69,12 @@ function App() {
             }
         }
     }, [])
+
+    const { showSplash, progress } = useImageLoader(imageUrls, 3000)
+    
+    if (!showSplash && progress < 99) {
+        return <LoadingPage progress={progress} />
+    }
 
     return (
         <HomePage jwt={jwt} />

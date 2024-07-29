@@ -1,6 +1,10 @@
 import styles from './index.module.scss'
 
-export default function LoadingPage() {
+export default function LoadingPage({
+    progress
+} : {
+    progress: number
+}) {
 
     return (
         <div className={styles.loading}>
@@ -11,7 +15,7 @@ export default function LoadingPage() {
                 <div className={styles.box}>
                     <img src="images/progress-bg.png" width={315} height={47} alt="" />
                     <div className={styles.progressbarContainer}>
-                        <div className={styles.progressbar} style={{ width: `${100}%` }}></div>
+                        <div className={styles.progressbar} style={{ width: `${progress - 5}%` }}></div>
                     </div>
                 </div>
             </div>
