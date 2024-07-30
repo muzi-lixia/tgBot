@@ -1,5 +1,5 @@
 import axios from '@/apis/axios'
-import API from '@/apis/constants'
+import API from '@/apis/apiRoute'
 
 /**
  * 获取jwtToken

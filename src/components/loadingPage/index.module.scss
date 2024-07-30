@@ -25,13 +25,13 @@
 
             .progressbarContainer {
                 position: absolute;
-                top: 14px;
+                top: 15px;
                 left: 10px;
                 width: 295px;
             }
 
             .progressbar {
-                height: 21px;
+                height: 20px;
                 background: linear-gradient(180deg, #F1F77C 0%, #91C133 100%);
                 border-radius: 9px;
                 transition: width 0.2s ease-in-out;

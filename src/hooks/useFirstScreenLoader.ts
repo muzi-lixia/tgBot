@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-const useImageLoader = (imageUrls: Array<string>, minimumTime: number) => {
+const useFirstScreenLoader = (imageUrls: Array<string>, minimumTime: number) => {
     const [imageCount, setImageCount] = useState(0)
     const [imageLoadedCount, setImageLoadedCount] = useState(0)
     const [showSplash, setShowSplash] = useState(false)
@@ -31,7 +31,7 @@ const useImageLoader = (imageUrls: Array<string>, minimumTime: number) => {
     }, [imageUrls])
 
     useEffect(() => {
-        if (imageCount > 0) {
+        if (imageCount > 0 && progress > 49) {
             const interval = setInterval(() => {
                 if (progress < 100) {
                     setProgress((prevProgress) => Math.min(prevProgress + 15, 100))
@@ -55,4 +55,4 @@ const useImageLoader = (imageUrls: Array<string>, minimumTime: number) => {
     return { showSplash: progress > 95 && showSplash, progress }
 }
 
-export default useImageLoader
+export default useFirstScreenLoader

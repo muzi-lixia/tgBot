@@ -8,14 +8,26 @@ import ClaimModal from './components/claimModal'
 import DrawsModal from './components/drawsModal'
 import SoonModal from './components/soonModal'
 // import Guide from './components/guide'
-import * as API_METHOD from '@/context/index'
+import * as API_METHOD from '@/apis'
 import { message } from 'antd'
 import rulesImg from '@/assets/images/rules.png'
 
 export default function Home({
-    jwt
+    userDetail,
+    updateUserDetail
 } : {
-    jwt: string
+    userDetail: {
+        botId: number
+        botUserName: string
+        id: number
+        inviteCode: string
+        inviteCount: number
+        lastSyncTime: number
+        tpusd: string
+        syncInviteCount: number
+        nextSyncTime: number
+    }
+    updateUserDetail: () => void
 }) {
 
     // const bool = localStorage.getItem('isReadGuidePage')
@@ -29,19 +41,6 @@ export default function Home({
     const [openClaimModal, setOpenClaimModal] = useState(false)
     const [openDrawsModal, setOpenDrawsModal] = useState(false)
     const [openSoonModal, setOpenSoonModal] = useState(false)
-
-    // 用户数据
-    const [userDetail, setUserDetail] = useState<{
-        botId: number
-        botUserName: string
-        id: number
-        inviteCode: string
-        inviteCount: number
-        lastSyncTime: number
-        tpusd: string
-        syncInviteCount: number
-        nextSyncTime: number
-    }>()
 
     // 金币动画
     const [animation, setAnimation] = useState(false)
@@ -81,7 +80,7 @@ export default function Home({
         getCliamTpusd()
         setTimeout(() => {
             if (bool) {
-                getUserDetail()
+                updateUserDetail()
                 setOpenClaimModal(true)
                 setAnimation(false)
             }
@@ -136,22 +135,6 @@ export default function Home({
         }
     }
 
-    // 获取用户详情
-    const getUserDetail = async () => {
-        try {
-            const detail = await API_METHOD.getUserDetail()
-            setUserDetail(detail.data || {})
-            if (!detail.data?.syncInviteCount) {
-                countDown(detail.data?.nextSyncTime)
-            }
-        } catch (error) {}
-    }
-    useEffect(() => {
-        if (jwt) {
-            getUserDetail()
-        }
-    }, [jwt])
-
     // 倒计时
     const [countDate, setCountDate] = useState({
         hour: '00',
@@ -168,7 +151,7 @@ export default function Home({
             let second = Math.floor((remaining / 1000) % 60);
             if (remaining <= 0) {
                 clearInterval(intervalId)
-                getUserDetail()
+                updateUserDetail()
                 setCountDate({
                     hour: '00',
                     minute: '00',
@@ -185,8 +168,8 @@ export default function Home({
     }
 
     useEffect(() => {
-        if (userDetail?.nextSyncTime) {
-            // countDown(userDetail.nextSyncTime)
+        if (userDetail?.nextSyncTime && userDetail?.nextSyncTime * 1000 > new Date().getTime()) {
+            countDown(userDetail.nextSyncTime)
         }
     }, [userDetail?.nextSyncTime])
     
