@@ -1,7 +1,7 @@
 import _axios from 'axios'
 
 const instance = _axios.create({
-    baseURL: 'https://dev.terplayer.org',
+    baseURL: import.meta.env.VITE_API_URL,
     timeout: 30000,
     headers: {
         Authorization: 'Bearer merlinadmin'

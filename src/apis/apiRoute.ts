@@ -1,6 +1,6 @@
 const API = {
     // 获取token
-    GET_JWT_TOKEN: '/v1/terpolly/miniapp/create_token_for_test',
+    GET_JWT_TOKEN: '/v1/terpolly/miniapp/create_token',
     // 用户注册
     POST_BOT_REGISTER: '/bot/register',
     // 用户详情

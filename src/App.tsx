@@ -109,6 +109,7 @@ function App() {
     }, [jwt])
 
     const { showSplash, progress } = useFirstScreenLoader(imageUrls, 3000)
+    console.log(import.meta.env.MODE);
     
     if (!showSplash && progress < 99) {
         return <LoadingPage progress={progress} />
