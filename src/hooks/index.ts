@@ -12,7 +12,7 @@ const useImageLoader = (imageUrls: Array<string>, minimumTime: number) => {
         const handleImageLoad = () => {
             if (!isMounted) return
             setImageLoadedCount((prevCount) => prevCount + 1)
-            // setProgress(((imageLoadedCount + 1) / (imageCount || 1)) * 50)
+            setProgress(((imageLoadedCount + 1) / (imageCount || 1)) * 50)
         }
 
         const images = imageUrls.map((url) => {
