@@ -86,6 +86,11 @@ function App() {
             if (WebApp.initDataUnsafe) {
                 WebApp.expand()
             }
+            console.log(initData); 
+            const paramsString = decodeURIComponent(initData)
+            console.log(paramsString);
+            const params = new URLSearchParams(paramsString)
+            console.log(params);
         } catch (error) {
             console.log(error)
         }
