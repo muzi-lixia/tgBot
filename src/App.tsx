@@ -64,8 +64,14 @@ function App() {
                 setJwt(result.data.jwtToken)
                 sessionStorage.setItem('jwt', result.data.jwtToken)
                 localStorage.setItem('jwtTokenTime', JSON.stringify(new Date().getTime()))
+                console.log(initData);
+                
                 const paramsString = decodeURIComponent(initData)
+                console.log(paramsString);
+                
                 const params = new URLSearchParams(paramsString)
+                console.log(params);
+                
                 const inviteCode = params.get("start_param")
                 await API_METHOD.postBotRegister(inviteCode || '')
                 getUserDetail()
@@ -84,7 +90,7 @@ function App() {
             console.log(error)
         }
         const time = localStorage.getItem('jwtTokenTime') ? JSON.parse(localStorage.getItem('jwtTokenTime') as string) : 0
-        let initData = `query_id=AAF4kt0tAwAAAHiS3S2pvoMT&user=%7B%22id%22%3A7211946616%2C%22first_name%22%3A%22muzi%22%2C%22last_name%22%3A%22lixia%22%2C%22username%22%3A%22muzi_lixia%22%2C%22language_code%22%3A%22zh-hans%22%2C%22allows_write_to_pm%22%3Atrue%7D&auth_date=1722086690&hash=0a7a4570851849e5b96f8e5b39b6d988fee55985d479d1db305fe11c81acbc3a`
+        // let initData = `query_id=AAF4kt0tAwAAAHiS3S2pvoMT&user=%7B%22id%22%3A7211946616%2C%22first_name%22%3A%22muzi%22%2C%22last_name%22%3A%22lixia%22%2C%22username%22%3A%22muzi_lixia%22%2C%22language_code%22%3A%22zh-hans%22%2C%22allows_write_to_pm%22%3Atrue%7D&auth_date=1722086690&hash=0a7a4570851849e5b96f8e5b39b6d988fee55985d479d1db305fe11c81acbc3a`
         if (initData) {
             if (!sessionStorage.getItem('jwt') || !time) {
                 getJwtToken(initData)
