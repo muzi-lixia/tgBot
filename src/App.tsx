@@ -90,7 +90,9 @@ function App() {
             const paramsString = decodeURIComponent(initData)
             console.log(paramsString);
             const params = new URLSearchParams(paramsString)
-            console.log(params);
+            console.log(params, ">>>>>");
+            console.log(params.get("start_param"));
+            
         } catch (error) {
             console.log(error)
         }
