@@ -21,7 +21,7 @@ export default function Rules({
         try {
             const params = `inviteCode=${inviteCode}`
             WebApp.openTelegramLink(
-                `https://t.me/share/url?text=${SHARE_TEXT}&url=${BOT_URL}?start=${params}`
+                `https://t.me/share/url?text=${SHARE_TEXT}&url=https://t.me/muzilixiaTestBot/demo?start=${params}`
             )
         } catch (error) {}
     }
