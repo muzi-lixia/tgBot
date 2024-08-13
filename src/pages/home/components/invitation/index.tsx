@@ -23,7 +23,7 @@ export default function Rules({
             
             // const params = `inviteCode=${inviteCode || 'muzilixia'}`
             WebApp.openTelegramLink(
-                `https://t.me/share/url?text=${SHARE_TEXT}&url=https://t.me/muzilixiaTestBot/demo?start=muzilixia`
+                `https://t.me/share/url?text=${SHARE_TEXT}&url=https://t.me/muzilixiaTestBot?start=muzilixia`
             )
         } catch (error) {}
     }

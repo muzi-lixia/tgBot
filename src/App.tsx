@@ -91,7 +91,7 @@ function App() {
             console.log(paramsString);
             const params = new URLSearchParams(paramsString)
             console.log(params, ">>>>>");
-            console.log(params.get("start_param"));
+            console.log(params.get("start"));
             
         } catch (error) {
             console.log(error)
