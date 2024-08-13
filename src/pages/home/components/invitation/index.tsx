@@ -1,5 +1,5 @@
 import styles from './index.module.scss'
-import { BOT_URL, SHARE_TEXT } from '@/const/constants'
+import { SHARE_TEXT } from '@/const/constants'
 import { Drawer } from 'antd'
 import WebApp from '@twa-dev/sdk'
 import closeImg from '@/assets/images/close.png'
