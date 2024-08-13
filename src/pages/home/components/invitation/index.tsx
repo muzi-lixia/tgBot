@@ -19,11 +19,9 @@ export default function Rules({
     // 邀请好友
     const handleClickInvitationFriends = () => {
         try {
-            console.log(inviteCode);
-            
-            // const params = `inviteCode=${inviteCode || 'muzilixia'}`
+            const params = `inviteCode=${inviteCode || 'muzilixia'}`
             WebApp.openTelegramLink(
-                `https://t.me/share/url?text=${SHARE_TEXT}&url=https://t.me/muzilixiaTestBot?start=muzilixia`
+                `https://t.me/share/url?text=${SHARE_TEXT}&url=https://t.me/muzilixiaTestBot/demo?start=${params}`
             )
         } catch (error) {}
     }
