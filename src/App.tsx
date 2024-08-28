@@ -6,6 +6,8 @@ import LoadingPage from './components/loadingPage'
 import HomePage from './pages/home'
 import * as API_METHOD from '@/apis'
 import useFirstScreenLoader from '@/hooks/useFirstScreenLoader'
+import { Routes, Route } from 'react-router-dom'
+import Betting from './pages/betting'
 
 const imageUrls = [
     "https://cdn-m5yrsruzzfea.vultrcdn.com/storage/terpollyBot/bg.png",
@@ -129,7 +131,10 @@ function App() {
     }
 
     return (
-        <HomePage userDetail={userDetail} updateUserDetail={getUserDetail} />
+        <Routes> 
+            <Route path='/' element={<HomePage userDetail={userDetail} updateUserDetail={getUserDetail} />} ></Route>
+            <Route path='/betting' element={<Betting />} ></Route>
+        </Routes>
     )
 }
 

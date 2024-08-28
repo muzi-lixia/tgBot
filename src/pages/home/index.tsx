@@ -11,6 +11,7 @@ import SoonModal from './components/soonModal'
 import * as API_METHOD from '@/apis'
 import { message } from 'antd'
 import rulesImg from '@/assets/images/rules.png'
+import { useNavigate } from 'react-router-dom'
 
 export default function Home({
     userDetail,
@@ -45,10 +46,14 @@ export default function Home({
     // 金币动画
     const [animation, setAnimation] = useState(false)
 
+    const navigation = useNavigate()
+
     // 奖励的tpusd数量
     const [claimTpusd, setClaimTpusd] = useState('')
     // click claim btn
     const handleClickClaim = async () => {
+        navigation('betting')
+        return
         if (animation) {
             // 防止重复点击
             return
