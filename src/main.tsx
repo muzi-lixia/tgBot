@@ -9,7 +9,7 @@ WebApp.ready()
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <BrowserRouter basename={import.meta.env.VITE_APP_LINK_PREFIX}>
+    <BrowserRouter basename='/'>
         <App />
     </BrowserRouter>
   </React.StrictMode>,
